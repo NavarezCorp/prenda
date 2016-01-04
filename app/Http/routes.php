@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -28,10 +24,33 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
+    Route::get('/', function () {
+        return view('welcome');
+    });
 });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+    
+    Route::get('/item', function () {
+        return view('pages.item');
+    });
+    
+    Route::get('/city', function () {
+        return view('pages.city');
+    });
+    
+    Route::get('/province', function () {
+        return view('pages.province');
+    });
+    
+    Route::get('/category', function () {
+        return view('pages.category');
+    });
+    
+    Route::get('/type', function () {
+        return view('pages.type');
+    });
 });
