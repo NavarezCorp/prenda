@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/prenda":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/prenda","hostpath":"/home/greywolf/www/Code/prenda","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/greywolf/www/Code/prenda","disabled":false}}}
