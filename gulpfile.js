@@ -36,6 +36,6 @@ elixir(function(mix) {
         'public/js/vendor.js'
     )
     .copy('resources/assets/js/app.js', 'public/js/app.js')
-    .copy(paths.bootstrap + 'assets/fonts/bootstrap', 'public/fonts')
+    .copy(paths.bootstrap + 'assets/fonts/bootstrap', 'public/fonts/bootstrap')
     .copy(paths.fontawesome + 'fonts', 'public/fonts');
 });

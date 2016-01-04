@@ -5,10 +5,13 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Manage Type</div>
+                <div class="panel-heading">
+                    Manage Category
+                    <a class="pull-right" href="/category/create">Add</a>
+                </div>
 
                 <div class="panel-body">
-                    type...
+                    category...
                 </div>
             </div>
         </div>

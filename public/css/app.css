@@ -7831,4 +7831,8 @@ button.close {
 .fa-btn {
   margin-right: 5px; }
 
+.table-tools-column {
+  width: 30px;
+  text-align: center; }
+
 /*# sourceMappingURL=app.css.map */

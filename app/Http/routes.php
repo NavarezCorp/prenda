@@ -34,23 +34,13 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
     
-    Route::get('/item', function () {
-        return view('pages.item');
-    });
+    Route::resource('item', 'ItemController');
     
-    Route::get('/city', function () {
-        return view('pages.city');
-    });
+    Route::resource('city', 'CityController');
     
-    Route::get('/province', function () {
-        return view('pages.province');
-    });
+    Route::resource('province', 'ProvinceController');
     
-    Route::get('/category', function () {
-        return view('pages.category');
-    });
+    Route::resource('category', 'CategoryController');
     
-    Route::get('/type', function () {
-        return view('pages.type');
-    });
+    Route::resource('type', 'TypeController');
 });
