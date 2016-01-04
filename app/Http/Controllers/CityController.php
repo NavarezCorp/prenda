@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use App\City;
+use Session;
 
 class CityController extends Controller
 {
@@ -18,7 +20,9 @@ class CityController extends Controller
     public function index()
     {
         //
-        $cities = DB::table('cities')->paginate(15);
+        $cities = DB::table('cities')->orderBy('id', 'desc')->paginate(15);
+        //$cities = new City();
+        //$cities->orderBy('created_at', 'desc')->paginate(15);
         
         return view('pages.city.index', ['cities'=>$cities]);
     }
@@ -43,7 +47,13 @@ class CityController extends Controller
     public function store(Request $request)
     {
         //
-        var_dump($request); die();
+        $cities = new City();
+        $cities->name = $request->name;
+        $cities->description = $request->description;
+        $cities->save();
+        
+        Session::flash('message', 'City named "' . $request->name . '" successfully created');
+        return redirect('/city');
     }
 
     /**
@@ -89,5 +99,12 @@ class CityController extends Controller
     public function destroy($id)
     {
         //
+        $city = City::find($id);
+        
+        Session::flash('message', 'City name "' . $city->name . '" successfully deleted');
+        
+        $city->delete();
+        
+        return redirect('/city');
     }
 }

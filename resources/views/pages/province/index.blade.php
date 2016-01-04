@@ -11,6 +11,12 @@
                 </div>
 
                 <div class="panel-body">
+                    @if(Session::has('message'))
+                        <div class="alert alert-success fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                            {{ Session::get('message') }}
+                        </div>
+                    @endif
                     <div class="pull-right">{!! $provinces->links() !!}</div>
                     <table class="table table-striped table-hover table-condensed">
                         <thead>
@@ -25,7 +31,13 @@
                                     <td>{{ $province->id }}</td>
                                     <td>{{ $province->name }}</td>
                                     <td class="table-tools-column"><i class="glyphicon glyphicon-pencil"></i></td>
-                                    <td class="table-tools-column"><i class="glyphicon glyphicon-remove"></i></td>
+                                    <td class="table-tools-column">
+                                        <form action="/province/{{ $city->id }}" method="POST">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button class="table-delete-button"><i class="glyphicon glyphicon-remove"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

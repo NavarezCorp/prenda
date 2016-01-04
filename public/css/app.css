@@ -7835,4 +7835,8 @@ button.close {
   width: 30px;
   text-align: center; }
 
+.table-delete-button {
+  border: none;
+  background-color: transparent; }
+
 /*# sourceMappingURL=app.css.map */
