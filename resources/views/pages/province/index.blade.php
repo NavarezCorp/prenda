@@ -32,7 +32,7 @@
                                     <td>{{ $province->name }}</td>
                                     <td class="table-tools-column"><i class="glyphicon glyphicon-pencil"></i></td>
                                     <td class="table-tools-column">
-                                        <form action="/province/{{ $city->id }}" method="POST">
+                                        <form action="/province/{{ $province->id }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button class="table-delete-button"><i class="glyphicon glyphicon-remove"></i></button>

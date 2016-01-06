@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Province;
+use Session;
 
 class ProvinceController extends Controller
 {
@@ -18,7 +20,7 @@ class ProvinceController extends Controller
     public function index()
     {
         //
-        $provinces = DB::table('provinces')->paginate(15);
+        $provinces = DB::table('provinces')->orderBy('id', 'desc')->paginate(15);
         return view('pages.province.index', ['provinces'=>$provinces]);
     }
 
@@ -30,6 +32,7 @@ class ProvinceController extends Controller
     public function create()
     {
         //
+        return view('pages.province.create');
     }
 
     /**
@@ -41,6 +44,13 @@ class ProvinceController extends Controller
     public function store(Request $request)
     {
         //
+        $province = new Province();
+        $province->name = $request->name;
+        $province->description = $request->description;
+        $province->save();
+        
+        Session::flash('message', 'Province named "' . $request->name . '" successfully created');
+        return redirect('/province');
     }
 
     /**
@@ -86,5 +96,12 @@ class ProvinceController extends Controller
     public function destroy($id)
     {
         //
+        $province = Province::find($id);
+        
+        Session::flash('message', 'Province name "' . $province->name . '" successfully deleted');
+        
+        $province->delete();
+        
+        return redirect('/province');
     }
 }
