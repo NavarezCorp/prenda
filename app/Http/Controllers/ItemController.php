@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
+use App\Item;
+use Session;
 
 class ItemController extends Controller
 {
@@ -17,7 +20,9 @@ class ItemController extends Controller
     public function index()
     {
         //
-        return view('pages.item.index');
+        $items = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(15);
+        
+        return view('pages.item.index', ['items'=>$items]);
     }
 
     /**
@@ -28,6 +33,7 @@ class ItemController extends Controller
     public function create()
     {
         //
+        return view('pages.item.create');
     }
 
     /**

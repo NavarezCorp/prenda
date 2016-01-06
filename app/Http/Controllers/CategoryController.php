@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
+use App\Category;
+use Session;
 
 class CategoryController extends Controller
 {
@@ -17,7 +20,9 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view('pages.category.index');
+        $categories = DB::table('categories')->orderBy('id', 'desc')->paginate(15);
+        
+        return view('pages.category.index', ['categories'=>$categories]);
     }
 
     /**
@@ -28,6 +33,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view('pages.category.create');
     }
 
     /**
@@ -39,6 +45,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $categories = new Category();
+        $categories->name = $request->name;
+        $categories->description = $request->description;
+        $categories->save();
+        
+        Session::flash('message', 'Category named "' . $request->name . '" successfully created');
+        return redirect('/category');
     }
 
     /**
@@ -84,5 +97,12 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+        $category = Category::find($id);
+        
+        Session::flash('message', 'Category name "' . $category->name . '" successfully deleted');
+        
+        $category->delete();
+        
+        return redirect('/category');
     }
 }

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
+use App\Type;
+use Session;
 
 class TypeController extends Controller
 {
@@ -17,7 +20,9 @@ class TypeController extends Controller
     public function index()
     {
         //
-        return view('pages.type.index');
+        $types = DB::table('types')->orderBy('id', 'desc')->paginate(15);
+        
+        return view('pages.type.index', ['types'=>$types]);
     }
 
     /**
@@ -28,6 +33,7 @@ class TypeController extends Controller
     public function create()
     {
         //
+        return view('pages.type.create');
     }
 
     /**
@@ -39,6 +45,13 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         //
+        $types = new Type();
+        $types->name = $request->name;
+        $types->description = $request->description;
+        $types->save();
+        
+        Session::flash('message', 'Type named "' . $request->name . '" successfully created');
+        return redirect('/type');
     }
 
     /**
@@ -84,5 +97,12 @@ class TypeController extends Controller
     public function destroy($id)
     {
         //
+        $type = Type::find($id);
+        
+        Session::flash('message', 'Type name "' . $type->name . '" successfully deleted');
+        
+        $type->delete();
+        
+        return redirect('/type');
     }
 }
