@@ -5,17 +5,18 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Add Item</div>
+                <div class="panel-heading">Edit Item</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/item') }}">
+                    <form class="form-horizontal" role="form" method="post" action="{{ route('item.update', $item->id) }}">
                         {!! csrf_field() !!}
+                        {{ method_field('PUT') }}
 
                         <div class="form-group{{ $errors->has('ticket_no') ? ' has-error' : '' }}">
-                            <label class="col-md-2 control-label">Ticker #</label>
+                            <label class="col-md-2 control-label">Ticket #</label>
 
                             <div class="col-md-4">
-                                <input type="text" class="form-control" name="ticket_no" value="{{ old('ticket_no') }}">
+                                <input type="text" class="form-control" name="ticket_no" value="{{ $item->ticket_no }}">
 
                                 @if ($errors->has('ticket_no'))
                                     <span class="help-block">
@@ -29,7 +30,7 @@
                             <label class="col-md-2 control-label">Category</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="category_id" value="{{ old('category_id') }}">
+                                <input type="text" class="form-control" name="category_id" value="{{ $item->category_id }}">
 
                                 @if ($errors->has('category_id'))
                                     <span class="help-block">
@@ -43,7 +44,7 @@
                             <label class="col-md-2 control-label">Type</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="type_id" value="{{ old('type_id') }}">
+                                <input type="text" class="form-control" name="type_id" value="{{ $item->type_id }}">
 
                                 @if ($errors->has('type_id'))
                                     <span class="help-block">
@@ -57,7 +58,7 @@
                             <label class="col-md-2 control-label">Price</label>
 
                             <div class="col-md-4">
-                                <input type="text" class="form-control" name="price" value="{{ old('price') }}">
+                                <input type="text" class="form-control" name="price" value="{{ $item->price }}">
 
                                 @if ($errors->has('price'))
                                     <span class="help-block">
@@ -71,7 +72,7 @@
                             <label class="col-md-2 control-label">Description</label>
 
                             <div class="col-md-8">
-                                <textarea class="form-control" rows="4" name="description" value="{{ old('description') }}"></textarea>
+                                <textarea class="form-control" rows="4" name="description">{{ $item->description }}</textarea>
 
                                 @if ($errors->has('description'))
                                     <span class="help-block">
@@ -97,7 +98,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-2">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                                 <a href="/item" class="btn btn-default">Cancel</a>
                             </div>
                         </div>

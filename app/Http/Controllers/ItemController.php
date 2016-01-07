@@ -45,6 +45,16 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         //
+        $items = new Item();
+        $items->ticket_no = $request->ticket_no;
+        $items->category_id = $request->category_id;
+        $items->type_id = $request->type_id;
+        $items->price = $request->price;
+        $items->description = $request->description;
+        $items->save();
+        
+        Session::flash('message', 'Item with ticket #' . $request->ticket_no . ' successfully created');
+        return redirect('/item');
     }
 
     /**
@@ -56,6 +66,9 @@ class ItemController extends Controller
     public function show($id)
     {
         //
+        $item = Item::find($id);
+        
+        return view('pages.item.show', ['item'=>$item]);
     }
 
     /**
@@ -67,6 +80,9 @@ class ItemController extends Controller
     public function edit($id)
     {
         //
+        $item = Item::find($id);
+        
+        return view('pages.item.edit', ['item'=>$item]);
     }
 
     /**
@@ -79,6 +95,17 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $item = Item::find($id);
+        
+        $item->ticket_no = $request->ticket_no;
+        $item->category_id = $request->category_id;
+        $item->type_id = $request->type_id;
+        $item->price = $request->price;
+        $item->description = $request->description;
+        $item->save();
+        
+        Session::flash('message', 'Item with ticket #' . $request->ticket_no . ' successfully updated');
+        return redirect('/item');
     }
 
     /**

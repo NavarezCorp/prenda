@@ -21,26 +21,35 @@
                     <table class="table table-striped table-hover table-condensed">
                         <thead>
                             <th>ID</th>
-                            <th>User</th>
-                            <th>Auction</th>
                             <th>Ticket #</th>
                             <th>Category</th>
                             <th>Type</th>
                             <th>Price</th>
                             <th>Sold</th>
+                            <th></th>
+                            <th></th>
+                            <!--<th></th>-->
                         </thead>
                         <tbody>
                             @foreach ($items as $index => $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
-                                    <td>{{ $item->user_id }}</td>
-                                    <td>{{ $item->auction_schedule_id }}</td>
                                     <td>{{ $item->ticket_no }}</td>
                                     <td>{{ $item->category_id }}</td>
                                     <td>{{ $item->type_id }}</td>
                                     <td>{{ $item->price }}</td>
                                     <td>{{ $item->is_sold }}</td>
-                                    <td class="table-tools-column"><i class="glyphicon glyphicon-pencil"></i></td>
+                                    <td class="table-tools-column">
+                                        <a href="{{ route('item.show', $item->id) }}">
+                                            <i class="glyphicon glyphicon-eye-open"></i>
+                                        </a>
+                                    </td>
+                                    <td class="table-tools-column">
+                                        <a href="{{ route('item.edit', $item->id) }}">
+                                            <i class="glyphicon glyphicon-pencil"></i>
+                                        </a>
+                                    </td>
+                                    <!--
                                     <td class="table-tools-column">
                                         <form action="/type/{{ $item->id }}" method="POST">
                                             {{ csrf_field() }}
@@ -48,6 +57,7 @@
                                             <button class="table-delete-button"><i class="glyphicon glyphicon-remove"></i></button>
                                         </form>
                                     </td>
+                                    -->
                                 </tr>
                             @endforeach
                         </tbody>
