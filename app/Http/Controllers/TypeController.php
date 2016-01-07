@@ -20,9 +20,9 @@ class TypeController extends Controller
     public function index()
     {
         //
-        $types = DB::table('types')->orderBy('id', 'desc')->paginate(15);
+        $data = DB::table('types')->orderBy('id', 'desc')->paginate(15);
         
-        return view('pages.type.index', ['types'=>$types]);
+        return view('pages.type.index', ['data'=>$data]);
     }
 
     /**
@@ -45,12 +45,12 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         //
-        $types = new Type();
-        $types->name = $request->name;
-        $types->description = $request->description;
-        $types->save();
+        $data = new Type();
+        $data->name = $request->name;
+        $data->description = $request->description;
+        $data->save();
         
-        Session::flash('message', 'Type named "' . $request->name . '" successfully created');
+        Session::flash('message', 'Type named "' . $request->name . '" was successfully created');
         return redirect('/type');
     }
 
@@ -63,6 +63,9 @@ class TypeController extends Controller
     public function show($id)
     {
         //
+        $data = Type::find($id);
+        
+        return view('pages.type.show', ['data'=>$data]);
     }
 
     /**
@@ -74,6 +77,9 @@ class TypeController extends Controller
     public function edit($id)
     {
         //
+        $data = Type::find($id);
+        
+        return view('pages.type.edit', ['data'=>$data]);
     }
 
     /**
@@ -86,6 +92,13 @@ class TypeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = Type::find($id);
+        $data->name = $request->name;
+        $data->description = $request->description;
+        $data->save();
+        
+        Session::flash('message', 'Type named "' . $request->name . '" was successfully updated');
+        return redirect('/type');
     }
 
     /**
@@ -97,11 +110,11 @@ class TypeController extends Controller
     public function destroy($id)
     {
         //
-        $type = Type::find($id);
+        $data = Type::find($id);
         
-        Session::flash('message', 'Type name "' . $type->name . '" successfully deleted');
+        Session::flash('message', 'Type name "' . $data->name . '" was successfully deleted');
         
-        $type->delete();
+        $data->delete();
         
         return redirect('/type');
     }

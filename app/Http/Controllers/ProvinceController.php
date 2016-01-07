@@ -20,8 +20,9 @@ class ProvinceController extends Controller
     public function index()
     {
         //
-        $provinces = DB::table('provinces')->orderBy('id', 'desc')->paginate(15);
-        return view('pages.province.index', ['provinces'=>$provinces]);
+        $data = DB::table('provinces')->orderBy('id', 'desc')->paginate(15);
+        
+        return view('pages.province.index', ['data'=>$data]);
     }
 
     /**
@@ -44,12 +45,12 @@ class ProvinceController extends Controller
     public function store(Request $request)
     {
         //
-        $province = new Province();
-        $province->name = $request->name;
-        $province->description = $request->description;
-        $province->save();
+        $data = new Province();
+        $data->name = $request->name;
+        $data->description = $request->description;
+        $data->save();
         
-        Session::flash('message', 'Province named "' . $request->name . '" successfully created');
+        Session::flash('message', 'Province named "' . $request->name . '" was successfully created');
         return redirect('/province');
     }
 
@@ -62,6 +63,9 @@ class ProvinceController extends Controller
     public function show($id)
     {
         //
+        $data = Province::find($id);
+        
+        return view('pages.province.show', ['data'=>$data]);
     }
 
     /**
@@ -73,6 +77,9 @@ class ProvinceController extends Controller
     public function edit($id)
     {
         //
+        $data = Province::find($id);
+        
+        return view('pages.province.edit', ['data'=>$data]);
     }
 
     /**
@@ -85,6 +92,13 @@ class ProvinceController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = Province::find($id);
+        $data->name = $request->name;
+        $data->description = $request->description;
+        $data->save();
+        
+        Session::flash('message', 'Province named "' . $request->name . '" was successfully updated');
+        return redirect('/province');
     }
 
     /**
@@ -96,11 +110,11 @@ class ProvinceController extends Controller
     public function destroy($id)
     {
         //
-        $province = Province::find($id);
+        $data = Province::find($id);
         
-        Session::flash('message', 'Province name "' . $province->name . '" successfully deleted');
+        Session::flash('message', 'Province name "' . $data->name . '" was successfully deleted');
         
-        $province->delete();
+        $data->delete();
         
         return redirect('/province');
     }

@@ -8,7 +8,7 @@
                 <div class="panel-heading">
                     View Item
                     <a class="pull-right" href="/item">List</a>
-                    <a class="pull-right show-edit-link" href="{{ route('item.edit', $item->id) }}">Edit</a>
+                    <a class="pull-right show-edit-link" href="{{ route('item.edit', $data->id) }}">Edit</a>
                 </div>
 
                 <div class="panel-body">
@@ -16,47 +16,47 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-3 text-right">ID</td>
-                                <td>{{ $item->id }}</td>
+                                <td>{{ $data->id }}</td>
                             </tr>
                             <tr>
                                 <td class="text-right">Encoded By</td>
-                                <td>{{ $item->users_id }}</td>
+                                <td>{{ $data->users_id }}</td>
                             </tr>
                             <tr>
                                 <td class="text-right">Ticket #</td>
-                                <td>{{ $item->ticket_no }}</td>
+                                <td>{{ $data->ticket_no }}</td>
                             </tr>
                             <tr>
                                 <td class="text-right">Description</td>
-                                <td>{{ $item->description }}</td>
+                                <td>{{ $data->description }}</td>
                             </tr>
                             <tr>
                                 <td class="text-right">Auction Schedule</td>
-                                <td>{{ $item->ticket_no }}</td>
+                                <td>{{ $data->ticket_no }}</td>
                             </tr>
                             <tr>
                                 <td class="text-right">Category</td>
-                                <td>{{ $item->category_id }}</td>
+                                <td>{{ $data->category_id }}</td>
                             </tr>
                             <tr>
                                 <td class="text-right">Type</td>
-                                <td>{{ $item->type_id }}</td>
+                                <td>{{ $data->type_id }}</td>
                             </tr>
                             <tr>
                                 <td class="text-right">Price</td>
-                                <td>{{ $item->price }}</td>
+                                <td>{{ $data->price }}</td>
                             </tr>
                             <tr>
                                 <td class="text-right">Is Sold</td>
-                                <td>{{ $item->is_sold }}</td>
+                                <td>{{ $data->is_sold }}</td>
                             </tr>
                             <tr>
                                 <td class="text-right">Date Created</td>
-                                <td>{{ $item->created_at }}</td>
+                                <td>{{ $data->created_at }}</td>
                             </tr>
                             <tr>
                                 <td class="text-right">Date Updated</td>
-                                <td>{{ $item->updated_at }}</td>
+                                <td>{{ $data->updated_at }}</td>
                             </tr>
                             <tr>
                                 <td class="text-right">Item photos</td>

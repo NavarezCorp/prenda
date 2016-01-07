@@ -93,7 +93,6 @@ class CityController extends Controller
     {
         //
         $data = City::find($id);
-        
         $data->name = $request->name;
         $data->description = $request->description;
         $data->save();

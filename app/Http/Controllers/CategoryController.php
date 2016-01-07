@@ -93,7 +93,6 @@ class CategoryController extends Controller
     {
         //
         $data = Category::find($id);
-        
         $data->name = $request->name;
         $data->description = $request->description;
         $data->save();

@@ -20,9 +20,9 @@ class ItemController extends Controller
     public function index()
     {
         //
-        $items = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(15);
+        $data = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(15);
         
-        return view('pages.item.index', ['items'=>$items]);
+        return view('pages.item.index', ['data'=>$data]);
     }
 
     /**
@@ -45,13 +45,13 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         //
-        $items = new Item();
-        $items->ticket_no = $request->ticket_no;
-        $items->category_id = $request->category_id;
-        $items->type_id = $request->type_id;
-        $items->price = $request->price;
-        $items->description = $request->description;
-        $items->save();
+        $data = new Item();
+        $data->ticket_no = $request->ticket_no;
+        $data->category_id = $request->category_id;
+        $data->type_id = $request->type_id;
+        $data->price = $request->price;
+        $data->description = $request->description;
+        $data->save();
         
         Session::flash('message', 'Item with ticket #' . $request->ticket_no . ' was successfully created');
         return redirect('/item');
@@ -66,9 +66,9 @@ class ItemController extends Controller
     public function show($id)
     {
         //
-        $item = Item::find($id);
+        $data = Item::find($id);
         
-        return view('pages.item.show', ['item'=>$item]);
+        return view('pages.item.show', ['data'=>$data]);
     }
 
     /**
@@ -80,9 +80,9 @@ class ItemController extends Controller
     public function edit($id)
     {
         //
-        $item = Item::find($id);
+        $data = Item::find($id);
         
-        return view('pages.item.edit', ['item'=>$item]);
+        return view('pages.item.edit', ['data'=>$data]);
     }
 
     /**
@@ -95,14 +95,13 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $item = Item::find($id);
-        
-        $item->ticket_no = $request->ticket_no;
-        $item->category_id = $request->category_id;
-        $item->type_id = $request->type_id;
-        $item->price = $request->price;
-        $item->description = $request->description;
-        $item->save();
+        $data = Item::find($id);
+        $data->ticket_no = $request->ticket_no;
+        $data->category_id = $request->category_id;
+        $data->type_id = $request->type_id;
+        $data->price = $request->price;
+        $data->description = $request->description;
+        $data->save();
         
         Session::flash('message', 'Item with ticket #' . $request->ticket_no . ' was successfully updated');
         return redirect('/item');

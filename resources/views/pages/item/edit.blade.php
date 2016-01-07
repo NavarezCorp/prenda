@@ -8,7 +8,7 @@
                 <div class="panel-heading">Edit Item</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="post" action="{{ route('item.update', $item->id) }}">
+                    <form class="form-horizontal" role="form" method="post" action="{{ route('item.update', $data->id) }}">
                         {!! csrf_field() !!}
                         {{ method_field('PUT') }}
 
@@ -16,7 +16,7 @@
                             <label class="col-md-2 control-label">Ticket #</label>
 
                             <div class="col-md-4">
-                                <input type="text" class="form-control" name="ticket_no" value="{{ $item->ticket_no }}">
+                                <input type="text" class="form-control" name="ticket_no" value="{{ $data->ticket_no }}">
 
                                 @if ($errors->has('ticket_no'))
                                     <span class="help-block">
@@ -30,7 +30,7 @@
                             <label class="col-md-2 control-label">Category</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="category_id" value="{{ $item->category_id }}">
+                                <input type="text" class="form-control" name="category_id" value="{{ $data->category_id }}">
 
                                 @if ($errors->has('category_id'))
                                     <span class="help-block">
@@ -44,7 +44,7 @@
                             <label class="col-md-2 control-label">Type</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="type_id" value="{{ $item->type_id }}">
+                                <input type="text" class="form-control" name="type_id" value="{{ $data->type_id }}">
 
                                 @if ($errors->has('type_id'))
                                     <span class="help-block">
@@ -58,7 +58,7 @@
                             <label class="col-md-2 control-label">Price</label>
 
                             <div class="col-md-4">
-                                <input type="text" class="form-control" name="price" value="{{ $item->price }}">
+                                <input type="text" class="form-control" name="price" value="{{ $data->price }}">
 
                                 @if ($errors->has('price'))
                                     <span class="help-block">
@@ -72,7 +72,7 @@
                             <label class="col-md-2 control-label">Description</label>
 
                             <div class="col-md-8">
-                                <textarea class="form-control" rows="4" name="description">{{ $item->description }}</textarea>
+                                <textarea class="form-control" rows="4" name="description">{{ $data->description }}</textarea>
 
                                 @if ($errors->has('description'))
                                     <span class="help-block">

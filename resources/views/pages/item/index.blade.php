@@ -17,7 +17,7 @@
                             {{ Session::get('message') }}
                         </div>
                     @endif
-                    <div class="pull-right">{!! $items->links() !!}</div>
+                    <div class="pull-right">{!! $data->links() !!}</div>
                     <table class="table table-striped table-hover table-condensed">
                         <thead>
                             <th>ID</th>
@@ -31,27 +31,27 @@
                             <!--<th></th>-->
                         </thead>
                         <tbody>
-                            @foreach ($items as $index => $item)
+                            @foreach ($data as $key => $value)
                                 <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->ticket_no }}</td>
-                                    <td>{{ $item->category_id }}</td>
-                                    <td>{{ $item->type_id }}</td>
-                                    <td>{{ $item->price }}</td>
-                                    <td>{{ $item->is_sold }}</td>
+                                    <td>{{ $value->id }}</td>
+                                    <td>{{ $value->ticket_no }}</td>
+                                    <td>{{ $value->category_id }}</td>
+                                    <td>{{ $value->type_id }}</td>
+                                    <td>{{ $value->price }}</td>
+                                    <td>{{ $value->is_sold }}</td>
                                     <td class="table-tools-column">
-                                        <a href="{{ route('item.show', $item->id) }}">
+                                        <a href="{{ route('item.show', $value->id) }}">
                                             <i class="glyphicon glyphicon-eye-open"></i>
                                         </a>
                                     </td>
                                     <td class="table-tools-column">
-                                        <a href="{{ route('item.edit', $item->id) }}">
+                                        <a href="{{ route('item.edit', $value->id) }}">
                                             <i class="glyphicon glyphicon-pencil"></i>
                                         </a>
                                     </td>
                                     <!--
                                     <td class="table-tools-column">
-                                        <form action="/type/{{ $item->id }}" method="POST">
+                                        <form action="/type/{{ $value->id }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button class="table-delete-button"><i class="glyphicon glyphicon-remove"></i></button>
@@ -62,7 +62,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="pull-right">{!! $items->links() !!}</div>
+                    <div class="pull-right">{!! $data->links() !!}</div>
                 </div>
             </div>
         </div>

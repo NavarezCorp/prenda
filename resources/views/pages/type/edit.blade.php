@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Edit Category</div>
+                <div class="panel-heading">Edit Type</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="post" action="{{ route('category.update', $data->id) }}">
+                    <form class="form-horizontal" role="form" method="post" action="{{ route('type.update', $data->id) }}">
                         {!! csrf_field() !!}
                         {{ method_field('PUT') }}
 
@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-2">
                                 <button type="submit" class="btn btn-primary">Update</button>
-                                <a href="/category" class="btn btn-default">Cancel</a>
+                                <a href="/type" class="btn btn-default">Cancel</a>
                             </div>
                         </div>
                     </form>
