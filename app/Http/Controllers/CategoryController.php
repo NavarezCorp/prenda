@@ -20,9 +20,9 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = DB::table('categories')->orderBy('id', 'desc')->paginate(15);
+        $data = DB::table('categories')->orderBy('id', 'desc')->paginate(15);
         
-        return view('pages.category.index', ['categories'=>$categories]);
+        return view('pages.category.index', ['data'=>$data]);
     }
 
     /**
@@ -45,12 +45,12 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-        $categories = new Category();
-        $categories->name = $request->name;
-        $categories->description = $request->description;
-        $categories->save();
+        $data = new Category();
+        $data->name = $request->name;
+        $data->description = $request->description;
+        $data->save();
         
-        Session::flash('message', 'Category named "' . $request->name . '" successfully created');
+        Session::flash('message', 'Category named "' . $request->name . '" was successfully created');
         return redirect('/category');
     }
 
@@ -63,6 +63,9 @@ class CategoryController extends Controller
     public function show($id)
     {
         //
+        $data = Category::find($id);
+        
+        return view('pages.category.show', ['data'=>$data]);
     }
 
     /**
@@ -74,6 +77,9 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+        $data = Category::find($id);
+        
+        return view('pages.category.edit', ['data'=>$data]);
     }
 
     /**
@@ -86,6 +92,14 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = Category::find($id);
+        
+        $data->name = $request->name;
+        $data->description = $request->description;
+        $data->save();
+        
+        Session::flash('message', 'Category named "' . $request->name . '" was successfully updated');
+        return redirect('/category');
     }
 
     /**
@@ -97,11 +111,11 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
-        $category = Category::find($id);
+        $data = Category::find($id);
         
-        Session::flash('message', 'Category name "' . $category->name . '" successfully deleted');
+        Session::flash('message', 'Category named "' . $data->name . '" was successfully deleted');
         
-        $category->delete();
+        $data->delete();
         
         return redirect('/category');
     }

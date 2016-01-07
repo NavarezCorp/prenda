@@ -20,11 +20,9 @@ class CityController extends Controller
     public function index()
     {
         //
-        $cities = DB::table('cities')->orderBy('id', 'desc')->paginate(15);
-        //$cities = new City();
-        //$cities->orderBy('created_at', 'desc')->paginate(15);
+        $data = DB::table('cities')->orderBy('id', 'desc')->paginate(15);
         
-        return view('pages.city.index', ['cities'=>$cities]);
+        return view('pages.city.index', ['data'=>$data]);
     }
 
     /**
@@ -47,12 +45,12 @@ class CityController extends Controller
     public function store(Request $request)
     {
         //
-        $cities = new City();
-        $cities->name = $request->name;
-        $cities->description = $request->description;
-        $cities->save();
+        $data = new City();
+        $data->name = $request->name;
+        $data->description = $request->description;
+        $data->save();
         
-        Session::flash('message', 'City named "' . $request->name . '" successfully created');
+        Session::flash('message', 'City named "' . $request->name . '" was successfully created');
         return redirect('/city');
     }
 
@@ -65,6 +63,9 @@ class CityController extends Controller
     public function show($id)
     {
         //
+        $data = City::find($id);
+        
+        return view('pages.city.show', ['data'=>$data]);
     }
 
     /**
@@ -76,6 +77,9 @@ class CityController extends Controller
     public function edit($id)
     {
         //
+        $data = City::find($id);
+        
+        return view('pages.city.edit', ['data'=>$data]);
     }
 
     /**
@@ -88,6 +92,14 @@ class CityController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = City::find($id);
+        
+        $data->name = $request->name;
+        $data->description = $request->description;
+        $data->save();
+        
+        Session::flash('message', 'City named "' . $request->name . '" was successfully updated');
+        return redirect('/city');
     }
 
     /**
@@ -99,11 +111,11 @@ class CityController extends Controller
     public function destroy($id)
     {
         //
-        $city = City::find($id);
+        $data = City::find($id);
         
-        Session::flash('message', 'City name "' . $city->name . '" successfully deleted');
+        Session::flash('message', 'City name "' . $data->name . '" successfully deleted');
         
-        $city->delete();
+        $data->delete();
         
         return redirect('/city');
     }

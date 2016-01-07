@@ -53,7 +53,7 @@ class ItemController extends Controller
         $items->description = $request->description;
         $items->save();
         
-        Session::flash('message', 'Item with ticket #' . $request->ticket_no . ' successfully created');
+        Session::flash('message', 'Item with ticket #' . $request->ticket_no . ' was successfully created');
         return redirect('/item');
     }
 
@@ -104,7 +104,7 @@ class ItemController extends Controller
         $item->description = $request->description;
         $item->save();
         
-        Session::flash('message', 'Item with ticket #' . $request->ticket_no . ' successfully updated');
+        Session::flash('message', 'Item with ticket #' . $request->ticket_no . ' was successfully updated');
         return redirect('/item');
     }
 

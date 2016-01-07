@@ -17,7 +17,7 @@
                             {{ Session::get('message') }}
                         </div>
                     @endif
-                    <div class="pull-right">{!! $cities->links() !!}</div>
+                    <div class="pull-right">{!! $data->links() !!}</div>
                     <table class="table table-striped table-hover table-condensed">
                         <thead>
                             <th>ID</th>
@@ -27,24 +27,35 @@
                             <th></th>
                         </thead>
                         <tbody>
-                            @foreach ($cities as $index => $city)
+                            @foreach ($data as $key => $value)
                                 <tr>
-                                    <td>{{ $city->id }}</td>
-                                    <td>{{ $city->name }}</td>
-                                    <td>{{ $city->description }}</td>
-                                    <td class="table-tools-column"><i class="glyphicon glyphicon-pencil"></i></td>
+                                    <td>{{ $value->id }}</td>
+                                    <td>{{ $value->name }}</td>
+                                    <td>{{ $value->description }}</td>
                                     <td class="table-tools-column">
-                                        <form action="/city/{{ $city->id }}" method="POST">
+                                        <a href="{{ route('city.show', $value->id) }}">
+                                            <i class="glyphicon glyphicon-eye-open"></i>
+                                        </a>
+                                    </td>
+                                    <td class="table-tools-column">
+                                        <a href="{{ route('city.edit', $value->id) }}">
+                                            <i class="glyphicon glyphicon-pencil"></i>
+                                        </a>
+                                    </td>
+                                    <!--
+                                    <td class="table-tools-column">
+                                        <form action="/city/{{ $value->id }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button class="table-delete-button"><i class="glyphicon glyphicon-remove"></i></button>
                                         </form>
                                     </td>
+                                    -->
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="pull-right">{!! $cities->links() !!}</div>
+                    <div class="pull-right">{!! $data->links() !!}</div>
                 </div>
             </div>
         </div>
