@@ -1,5 +1,7 @@
 <?php
 
+use DB;
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -25,7 +27,9 @@
 Route::group(['middleware' => ['web']], function () {
     //
     Route::get('/', function () {
-        return view('welcome');
+        $data = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(15);
+        
+        return view('welcome', ['data'=>$data]);
     });
 });
 

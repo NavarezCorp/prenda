@@ -7846,4 +7846,19 @@ button.close {
 .show-edit-link {
   margin-right: 15px; }
 
+.item-photo-ticket-no {
+  border: 1px solid;
+  clear: both;
+  padding: 3px; }
+
+.item-photo-image {
+  border: 1px solid #ddd;
+  padding: 3px;
+  border-bottom-color: transparent; }
+
+.item-photos-thumbnail {
+  width: 170px;
+  height: 130px;
+  margin-right: 5px; }
+
 /*# sourceMappingURL=app.css.map */
