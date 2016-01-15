@@ -29,6 +29,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
         $data['items'] = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(15);
         $data['provinces'] = DB::table('provinces')->lists('name', 'id');
+        $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
         
         return view('welcome', ['data'=>$data]);
     });
@@ -36,18 +37,13 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-
     Route::get('/home', 'HomeController@index');
-    
     Route::resource('item', 'ItemController');
-    
     Route::resource('city', 'CityController');
-    
     Route::resource('province', 'ProvinceController');
-    
     Route::resource('category', 'CategoryController');
-    
     Route::resource('type', 'TypeController');
-    
     Route::resource('pricing', 'PricingController');
+    Route::resource('pawnshop', 'PawnshopController');
+    Route::resource('branch', 'BranchController');
 });

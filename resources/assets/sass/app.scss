@@ -99,3 +99,12 @@ body {
     border-left: 1px solid transparent !important;
     border-top: 1px solid transparent !important;
 }
+
+.search-selects > .row > select {
+    width: inherit;
+    margin-left: 15px;
+}
+
+.search-button {
+    height: 34px;
+}

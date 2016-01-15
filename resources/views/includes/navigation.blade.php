@@ -69,5 +69,5 @@
     </div>
 </nav>
 <div class="container prof-pic">
-    <img class="img-responsive" src="images/images2.png">
+    <img class="img-responsive" src="/images/images2.png">
 </div>
