@@ -11,23 +11,30 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                Prenda
-            </a>
+            <div>
+                <a class="navbar-brand brand-image" href="{{ url('/') }}">
+                    <span class="brand-name">Prenda.com</span>
+                    <img src="/images/ring0.png" class="img-responsive" alt="Responsive image">
+                </a>
+            </div>
         </div>
 
         <div class="collapse navbar-collapse" id="spark-navbar-collapse">
             <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav text-uppercase small">
                 @if (Auth::guest())
                     <li><a href="{{ url('/') }}">Home</a></li>
                 @else
                     <li><a href="{{ url('/home') }}">Home</a></li>
                 @endif
+                <li><a href="{{ url('/') }}">Auction Schedule</a></li>
+                <li><a href="{{ url('/pricing') }}">Pricing</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right text-uppercase small">
+                <li><a href="{{ url('/') }}">About Us</a></li>
+                <li><a href="{{ url('/') }}">Contact Us</a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
@@ -49,10 +56,10 @@
                     
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            <span class="glyphicon glyphicon-cog"></span
                         </a>
-
                         <ul class="dropdown-menu" role="menu">
+                            <li><a>{{ Auth::user()->name }}</a></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>
                     </li>
@@ -61,3 +68,6 @@
         </div>
     </div>
 </nav>
+<div class="container prof-pic">
+    <img class="img-responsive" src="images/images2.png">
+</div>

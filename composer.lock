@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f43d0db69608abbd822ef310859cae74",
-    "content-hash": "9cde6fc04e2471a218ca4a604773d874",
+    "hash": "0e64025182f87a657566b8d4f626eced",
+    "content-hash": "25d70bd59e3e644718cb8c3911476c4f",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1974,6 +1974,60 @@
             ],
             "description": "A virtual machine for web artisans.",
             "time": "2015-12-21 22:36:28"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/5a8f1380a0d5ef21cdef37e775d86566307f8358",
+                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.2.*",
+                "illuminate/routing": "5.2.*",
+                "illuminate/session": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "illuminate/view": "5.2.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "illuminate/database": "5.2.*",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "http://laravelcollective.com",
+            "time": "2015-12-23 07:46:46"
         },
         {
             "name": "mockery/mockery",

@@ -5,10 +5,12 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading"></div>
+                <div class="panel-heading">
+                    {{ Form::select('province', $data['provinces']) }}
+                </div>
 
                 <div class="panel-body">
-                    @foreach ($data as $key => $value)
+                    @foreach ($data['items'] as $key => $value)
                         <div class="col-md-4 portfolio-item">
                             <a href="{{ route('item.show', $value->id) }}">
                                 <img class="img-responsive" src="http://placehold.it/700x400">

@@ -1,6 +1,6 @@
 <?php
 
-use DB;
+//use DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,8 @@ use DB;
 Route::group(['middleware' => ['web']], function () {
     //
     Route::get('/', function () {
-        $data = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(15);
+        $data['items'] = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(15);
+        $data['provinces'] = DB::table('provinces')->lists('name', 'id');
         
         return view('welcome', ['data'=>$data]);
     });
@@ -47,4 +48,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('category', 'CategoryController');
     
     Route::resource('type', 'TypeController');
+    
+    Route::resource('pricing', 'PricingController');
 });
