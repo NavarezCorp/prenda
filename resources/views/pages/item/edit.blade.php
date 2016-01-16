@@ -99,7 +99,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-2">
                                 <button type="submit" class="btn btn-primary">Update</button>
-                                <a href="/item" class="btn btn-default">Cancel</a>
+                                <a href="{{ url('/item') }}" class="btn btn-default">Cancel</a>
                             </div>
                         </div>
                     </form>

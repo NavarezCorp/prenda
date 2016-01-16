@@ -3,7 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="register-prof-pic col-md-4">
+            <img class="img-responsive" src="/images/images2.png">
+        </div>
+        <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">

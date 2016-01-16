@@ -7,8 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     View City
-                    <a class="pull-right" href="/city">List</a>
-                    <a class="pull-right show-edit-link" href="{{ route('city.edit', $data->id) }}">Edit</a>
+                    <a class="pull-right" href="{{ url('/province') }}">List</a>
+                    <a class="pull-right show-edit-link" href="{{ route('province.edit', $data->id) }}">Edit</a>
                 </div>
 
                 <div class="panel-body">

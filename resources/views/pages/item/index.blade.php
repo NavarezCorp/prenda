@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Manage Item
-                    <a class="pull-right" href="/item/create">Add</a>
+                    <a class="pull-right" href="{{ url('/item/create') }}">Add</a>
                 </div>
 
                 <div class="panel-body">

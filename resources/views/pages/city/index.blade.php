@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Manage City
-                    <a class="pull-right" href="/city/create">Add</a>
+                    <a class="pull-right" href="{{ url('/city/create') }}">Add</a>
                 </div>
 
                 <div class="panel-body">

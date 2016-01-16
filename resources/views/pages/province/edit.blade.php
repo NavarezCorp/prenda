@@ -8,7 +8,7 @@
                 <div class="panel-heading">Edit City</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="post" action="{{ route('city.update', $data->id) }}">
+                    <form class="form-horizontal" role="form" method="post" action="{{ route('province.update', $data->id) }}">
                         {!! csrf_field() !!}
                         {{ method_field('PUT') }}
 
@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-2">
                                 <button type="submit" class="btn btn-primary">Update</button>
-                                <a href="/city" class="btn btn-default">Cancel</a>
+                                <a href="{{ url('/province') }}" class="btn btn-default">Cancel</a>
                             </div>
                         </div>
                     </form>

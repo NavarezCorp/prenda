@@ -17,6 +17,7 @@ class PawnshopController extends Controller
     public function index()
     {
         //
+        echo 'pawnshop...';
     }
 
     /**

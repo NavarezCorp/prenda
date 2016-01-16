@@ -38,7 +38,7 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+                    <!--<li><a href="{{ url('/register') }}">Register</a></li>-->
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -51,6 +51,9 @@
                             <li><a href="{{ url('/province') }}">Province</a></li>
                             <li><a href="{{ url('/category') }}">Category</a></li>
                             <li><a href="{{ url('/type') }}">Type</a></li>
+                            @if (Auth::user()->name == 'Philip Radin Navarez')
+                                <li><a href="{{ url('/pawnshop') }}">Pawnshop</a></li>
+                            @endif
                         </ul>
                     </li>
                     
@@ -68,6 +71,8 @@
         </div>
     </div>
 </nav>
-<div class="container prof-pic">
-    <img class="img-responsive" src="/images/images2.png">
-</div>
+@if (Request::url() != 'http://prenda.app/login' && Request::url() != 'http://prenda.app/register')
+    <div class="container prof-pic">
+        <img class="img-responsive" src="/images/images2.png">
+    </div>
+@endif

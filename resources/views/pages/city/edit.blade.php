@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-2">
                                 <button type="submit" class="btn btn-primary">Update</button>
-                                <a href="/city" class="btn btn-default">Cancel</a>
+                                <a href="{{ url('/city') }}" class="btn btn-default">Cancel</a>
                             </div>
                         </div>
                     </form>

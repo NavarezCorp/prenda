@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Manage Province
-                    <a class="pull-right" href="/province/create">Add</a>
+                    <a class="pull-right" href="{{ url('/province/create') }}">Add</a>
                 </div>
 
                 <div class="panel-body">

@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     View Type
-                    <a class="pull-right" href="/type">List</a>
+                    <a class="pull-right" href="{{ url('/type') }}">List</a>
                     <a class="pull-right show-edit-link" href="{{ route('type.edit', $data->id) }}">Edit</a>
                 </div>
 

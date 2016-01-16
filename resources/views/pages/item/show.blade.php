@@ -8,7 +8,7 @@
                 <div class="panel-heading">
                     View Item
                     @if (!Auth::guest())
-                        <a class="pull-right" href="/item">List</a>
+                        <a class="pull-right" href="{{ url('/item') }}">List</a>
                         <a class="pull-right show-edit-link" href="{{ route('item.edit', $data->id) }}">Edit</a>
                     @endif
                 </div>

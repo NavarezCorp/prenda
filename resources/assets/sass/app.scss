@@ -70,7 +70,7 @@ body {
 .brand-name {
     position: relative;
     top: 120px;
-    left: 2px;
+    left: 4px;
 }
 
 .navbar-brand {
@@ -107,4 +107,24 @@ body {
 
 .search-button {
     height: 34px;
+}
+
+.login-prof-pic > img {
+    height: 260px;
+}
+
+.register-prof-pic > img {
+    height: 316px;
+}
+
+.footer-brand-image > img {
+    width: 80px;
+    left: 10px;
+    position: relative;
+}
+
+.footer-brand-name {
+    position: relative;
+    left: 4px;
+    font-size: 18px;
 }

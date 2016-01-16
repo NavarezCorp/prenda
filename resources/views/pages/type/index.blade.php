@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Manage Type
-                    <a class="pull-right" href="/type/create">Add</a>
+                    <a class="pull-right" href="{{ url('/type/create') }}">Add</a>
                 </div>
 
                 <div class="panel-body">

@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     View Category
-                    <a class="pull-right" href="/category">List</a>
+                    <a class="pull-right" href="{{ url('/category') }}">List</a>
                     <a class="pull-right show-edit-link" href="{{ route('category.edit', $data->id) }}">Edit</a>
                 </div>
 
