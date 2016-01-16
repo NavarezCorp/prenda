@@ -71,7 +71,7 @@
         </div>
     </div>
 </nav>
-@if (Request::url() != 'http://prenda.app/login' && Request::url() != 'http://prenda.app/register')
+@if (!Request::is('login') && !Request::is('register'))
     <div class="container prof-pic">
         <img class="img-responsive" src="/images/images2.png">
     </div>
