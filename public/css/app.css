@@ -7923,4 +7923,10 @@ body {
   left: 4px;
   font-size: 18px; }
 
+.map {
+  min-width: 300px;
+  min-height: 300px;
+  width: 100%;
+  height: 100%; }
+
 /*# sourceMappingURL=app.css.map */

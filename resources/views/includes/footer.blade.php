@@ -20,7 +20,7 @@
                     <li><a href="{{ url('/pricing') }}">Pricing</a></li>
                     <li><a href="{{ url('/') }}">About Us</a></li>
                     <li><a href="{{ url('/') }}">Disclaimer</a></li>
-                    <li><a href="{{ url('/') }}">Contact Us</a></li>
+                    <li><a href="{{ url('/contact') }}">Contact Us</a></li>
                     <li><a href="{{ url('/') }}">Terms of Services</a></li>
                 </ul>
                 <p>

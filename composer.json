@@ -15,7 +15,9 @@
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "laravel/homestead": "^3.0",
-        "laravelcollective/html": "^5.2"
+        "laravelcollective/html": "^5.2",
+        "egeloen/google-map": "^1.4",
+        "willdurand/geocoder": "2.8.*"
     },
     "autoload": {
         "classmap": [

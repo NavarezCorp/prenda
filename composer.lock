@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0e64025182f87a657566b8d4f626eced",
-    "content-hash": "25d70bd59e3e644718cb8c3911476c4f",
+    "hash": "6a1d12a82ca27268e8a7a32bc79b3140",
+    "content-hash": "79579397c9b9acf28c4ebb8ae09d4a08",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -308,16 +308,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.6",
+            "version": "v5.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b774c304ee81fcf5402fa06b261b364ba8f29cf0"
+                "reference": "93dc5b0089eef468157fd7200e575c3861ec59a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b774c304ee81fcf5402fa06b261b364ba8f29cf0",
-                "reference": "b774c304ee81fcf5402fa06b261b364ba8f29cf0",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/93dc5b0089eef468157fd7200e575c3861ec59a5",
+                "reference": "93dc5b0089eef468157fd7200e575c3861ec59a5",
                 "shasum": ""
             },
             "require": {
@@ -432,7 +432,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-12-31 17:41:58"
+            "time": "2016-01-13 20:29:10"
         },
         {
             "name": "league/flysystem",
@@ -739,16 +739,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47"
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/d762ee5b099a29044603cd4649851e81aa66cb47",
-                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
                 "shasum": ""
             },
             "require": {
@@ -783,7 +783,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-12-10 14:48:13"
+            "time": "2016-01-06 13:31:20"
         },
         {
             "name": "psr/log",
@@ -1833,6 +1833,113 @@
             "time": "2015-06-14 21:17:01"
         },
         {
+            "name": "egeloen/google-map",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egeloen/ivory-google-map.git",
+                "reference": "9770a3f47888494e9f2d449144508bc805af124f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egeloen/ivory-google-map/zipball/9770a3f47888494e9f2d449144508bc805af124f",
+                "reference": "9770a3f47888494e9f2d449144508bc805af124f",
+                "shasum": ""
+            },
+            "require": {
+                "egeloen/json-builder": "~1.0.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~0.6",
+                "widop/http-adapter": "~1.1.0",
+                "willdurand/geocoder": "~2.0"
+            },
+            "suggest": {
+                "widop/http-adapter": "Allows to use services",
+                "willdurand/geocoder": "Allows to use geocoding service"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ivory\\GoogleMap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric GELOEN",
+                    "email": "geloen.eric@gmail.com"
+                }
+            ],
+            "description": "Google Map API v3 integration for PHP 5.3+",
+            "keywords": [
+                "google map"
+            ],
+            "time": "2014-10-30 19:30:44"
+        },
+        {
+            "name": "egeloen/json-builder",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egeloen/ivory-json-builder.git",
+                "reference": "6209142ed808e9899473e9b6091b8a4f4d8de794"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egeloen/ivory-json-builder/zipball/6209142ed808e9899473e9b6091b8a4f4d8de794",
+                "reference": "6209142ed808e9899473e9b6091b8a4f4d8de794",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.3.0",
+                "symfony/property-access": "~2.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~0.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ivory\\JsonBuilder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric GELOEN",
+                    "email": "geloen.eric@gmail.com"
+                }
+            ],
+            "description": "JSON builder with escaping control for PHP 5.3+",
+            "keywords": [
+                "Escape",
+                "builder",
+                "json"
+            ],
+            "time": "2014-11-08 10:51:34"
+        },
+        {
             "name": "fzaninotto/faker",
             "version": "v1.5.0",
             "source": {
@@ -1977,16 +2084,16 @@
         },
         {
             "name": "laravelcollective/html",
-            "version": "v5.2",
+            "version": "v5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358"
+                "reference": "c88b2d59a56ed2290fc5082a1a6099e357c9fdbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/5a8f1380a0d5ef21cdef37e775d86566307f8358",
-                "reference": "5a8f1380a0d5ef21cdef37e775d86566307f8358",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/c88b2d59a56ed2290fc5082a1a6099e357c9fdbc",
+                "reference": "c88b2d59a56ed2290fc5082a1a6099e357c9fdbc",
                 "shasum": ""
             },
             "require": {
@@ -2027,7 +2134,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2015-12-23 07:46:46"
+            "time": "2016-01-16 16:54:49"
         },
         {
             "name": "mockery/mockery",
@@ -3052,6 +3159,66 @@
             "time": "2015-12-26 13:42:31"
         },
         {
+            "name": "symfony/property-access",
+            "version": "v2.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/property-access.git",
+                "reference": "f58bd65f1e985f4192eedbf0b2a818a220eccadc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/f58bd65f1e985f4192eedbf0b2a818a220eccadc",
+                "reference": "f58bd65f1e985f4192eedbf0b2a818a220eccadc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\PropertyAccess\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony PropertyAccess Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "access",
+                "array",
+                "extraction",
+                "index",
+                "injection",
+                "object",
+                "property",
+                "property path",
+                "reflection"
+            ],
+            "time": "2016-01-03 15:33:41"
+        },
+        {
             "name": "symfony/yaml",
             "version": "v3.0.1",
             "source": {
@@ -3099,6 +3266,70 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2015-12-26 13:39:53"
+        },
+        {
+            "name": "willdurand/geocoder",
+            "version": "2.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/geocoder-php/Geocoder.git",
+                "reference": "8a66b8a227328f28ba12f98937a33c6fa0bb90f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/geocoder-php/Geocoder/zipball/8a66b8a227328f28ba12f98937a33c6fa0bb90f8",
+                "reference": "8a66b8a227328f28ba12f98937a33c6fa0bb90f8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "geoip/geoip": "~1.13",
+                "geoip2/geoip2": "~0.6",
+                "guzzle/guzzle": "@stable",
+                "kriswallsmith/buzz": "@stable",
+                "zendframework/zend-http": "~2.1"
+            },
+            "suggest": {
+                "ext-curl": "Enabling the curl extension allows you to use the CurlHttpAdapter.",
+                "ext-geoip": "Enabling the geoip extension allows you to use the MaxMindProvider.",
+                "geoip/geoip": "If you are going to use the MaxMindBinaryProvider (conflict with geoip extension).",
+                "geoip2/geoip2": "If you are going to use the GeoIP2DatabaseProvider.",
+                "guzzle/guzzle": "Enabling Guzzle allows you to use the GuzzleHttpAdapter.",
+                "kriswallsmith/buzz": "Enabling Buzz allows you to use the BuzzHttpAdapter.",
+                "zendframework/zend-http": "Enabling Zend Http allows you to use the ZendHttpAdapter."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Geocoder": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com"
+                }
+            ],
+            "description": "The almost missing Geocoder PHP 5.3 library.",
+            "homepage": "http://geocoder-php.org",
+            "keywords": [
+                "abstraction",
+                "geocoder",
+                "geocoding",
+                "geoip"
+            ],
+            "time": "2015-01-07 13:23:35"
         }
     ],
     "aliases": [],

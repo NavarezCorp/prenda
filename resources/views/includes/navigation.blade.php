@@ -34,7 +34,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right text-uppercase small">
                 <li><a href="{{ url('/') }}">About Us</a></li>
-                <li><a href="{{ url('/') }}">Contact Us</a></li>
+                <li><a href="{{ url('/contact') }}">Contact Us</a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
