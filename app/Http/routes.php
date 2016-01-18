@@ -39,7 +39,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
     
     Route::get('/home', function(){
-        $data['items'] = DB::table('items')->where(['users_id'=>Auth::user()->id])->orderBy('ticket_no', 'desc')->paginate(15);
+        $data['items'] = DB::table('items')->where(['users_id'=>Auth::user()->id])->orderBy('ticket_no', 'desc')->paginate(6);
         $data['provinces'] = DB::table('provinces')->lists('name', 'id');
         $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
         

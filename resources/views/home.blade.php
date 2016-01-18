@@ -22,6 +22,8 @@
                 </div>
 
                 <div class="panel-body">
+                    <div class="pull-right">{!! $data['items']->links() !!}</div>
+                    <div class="row clearboth">
                     @foreach ($data['items'] as $key => $value)
                         <div class="col-md-4 portfolio-item">
                             <a href="{{ route('item.show', $value->id) }}">
@@ -31,6 +33,8 @@
                             <p class="">{{ $value->description }}</p>
                         </div>
                     @endforeach
+                    </div>
+                    <div class="pull-right">{!! $data['items']->links() !!}</div>
                 </div>
             </div>
         </div>

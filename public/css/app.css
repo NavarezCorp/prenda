@@ -7943,4 +7943,7 @@ body {
   border: 1px solid #ddd;
   padding: 5px; }
 
+.clearboth {
+  clear: both; }
+
 /*# sourceMappingURL=app.css.map */
