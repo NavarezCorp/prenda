@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\Item;
 use Session;
+use Auth;
 
 class ItemController extends Controller
 {
@@ -20,7 +21,7 @@ class ItemController extends Controller
     public function index()
     {
         //
-        $data = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(15);
+        $data = DB::table('items')->where(['users_id'=>Auth::user()->id])->orderBy('ticket_no', 'desc')->paginate(15);
         
         return view('pages.item.index', ['data'=>$data]);
     }
@@ -46,6 +47,7 @@ class ItemController extends Controller
     {
         //
         $data = new Item();
+        $data->users_id = Auth::user()->id;
         $data->ticket_no = $request->ticket_no;
         $data->category_id = $request->category_id;
         $data->type_id = $request->type_id;

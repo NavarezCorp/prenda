@@ -37,7 +37,15 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-    Route::get('/home', 'HomeController@index');
+    
+    Route::get('/home', function(){
+        $data['items'] = DB::table('items')->where(['users_id'=>Auth::user()->id])->orderBy('ticket_no', 'desc')->paginate(15);
+        $data['provinces'] = DB::table('provinces')->lists('name', 'id');
+        $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
+        
+        return view('home', ['data'=>$data]);
+    });
+    
     Route::resource('item', 'ItemController');
     Route::resource('city', 'CityController');
     Route::resource('province', 'ProvinceController');
