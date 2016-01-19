@@ -13,6 +13,7 @@ var elixir = require('laravel-elixir');
 
 var paths = {
     'jquery': './resources/assets/vendor/jquery/',
+    'jqueryui': './resources/assets/vendor/jquery-ui/',
     'bootstrap': './node_modules/bootstrap-sass/',
     'fontawesome': './resources/assets/vendor/font-awesome/',
 }
@@ -25,17 +26,21 @@ elixir(function(mix) {
             includePaths: [
                 paths.bootstrap + 'assets/stylesheets',
                 paths.fontawesome + 'scss',
+                paths.jqueryui + 'themes/base',
             ]
         }
     )
     .scripts(
         [
             paths.jquery + 'dist/jquery.min.js',
+            paths.jqueryui + 'jquery-ui.min.js',
+            paths.jqueryui + 'ui',
             paths.bootstrap + 'assets/javascripts/bootstrap.min.js',
         ],
         'public/js/vendor.js'
     )
     .copy('resources/assets/js/app.js', 'public/js/app.js')
     .copy(paths.bootstrap + 'assets/fonts/bootstrap', 'public/fonts/bootstrap')
+    .copy(paths.jqueryui + 'themes/base/images', 'public/images')
     .copy(paths.fontawesome + 'fonts', 'public/fonts');
 });

@@ -51,6 +51,7 @@
                             <li><a href="{{ url('/province') }}">Province</a></li>
                             <li><a href="{{ url('/category') }}">Category</a></li>
                             <li><a href="{{ url('/type') }}">Type</a></li>
+                            <li><a href="{{ url('/auction') }}">Auction Schedule</a></li>
                             @if (Auth::user()->name == 'Philip Radin Navarez')
                                 <li><a href="{{ url('/pawnshop') }}">Pawnshop</a></li>
                             @endif

@@ -51,7 +51,7 @@ body {
 }
 
 .item-photos-thumbnail {
-    width: 170px;
+    width: 177px;
     height: 130px;
     margin-right: 5px;
 }
@@ -155,4 +155,42 @@ body {
 
 .clearboth {
     clear: both;
+}
+
+.item-primary-image {
+    margin-bottom: 10px;
+}
+
+.item-image-list {
+    width: 770px;
+}
+
+.item-details > dt {
+    width: 100px;
+    line-height: 45px;
+    border-bottom: 1px dotted #ddd;
+}
+
+.item-details > dd {
+    margin-left: 120px;
+    line-height: 45px;
+    border-bottom: 1px dotted #ddd;
+}
+
+.item-view-button > a {
+    margin-right: 5px;
+}
+
+.item-details > dt > strong, .item-details > dd > strong, .auction-list > dd > strong, .auction-list > dt > strong {
+    color: #b92c28;
+}
+
+.auction-list > dt {
+    line-height: 45px;
+    border-bottom: 1px dotted #ddd;
+}
+
+.auction-list > dd {
+    line-height: 45px;
+    border-bottom: 1px dotted #ddd;
 }

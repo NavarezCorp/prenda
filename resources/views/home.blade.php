@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading search-selects">
                     <div class="row">
-                        <span class="pull-left col-lg-4 user-help">Hi <a href="#">{{ Auth::user()->name }}</a> need a <a href="#">help>?</a></span>
+                        <span class="pull-left col-lg-4 user-help">Hi <a href="#">{{ Auth::user()->name }}</a> need <a href="#">help>?</a></span>
                         <div class="col-lg-4 pull-right">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search for...">

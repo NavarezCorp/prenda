@@ -12,7 +12,7 @@
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('ticket_no') ? ' has-error' : '' }}">
-                            <label class="col-md-2 control-label">Ticker #</label>
+                            <label class="col-md-2 control-label">Ticket #</label>
 
                             <div class="col-md-4">
                                 <input type="text" class="form-control" name="ticket_no" value="{{ old('ticket_no') }}">
