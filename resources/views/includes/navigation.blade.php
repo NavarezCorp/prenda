@@ -45,7 +45,7 @@
                             Manage <span class="caret"></span>
                         </a>
 
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu text-capitalize small" role="menu">
                             <li><a href="{{ url('/item') }}">Item</a></li>
                             <li><a href="{{ url('/city') }}">City</a></li>
                             <li><a href="{{ url('/province') }}">Province</a></li>

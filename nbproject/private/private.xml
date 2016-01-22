@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/greywolf/www/Code/prenda-staging/resources/views/home.blade.php</file>
+            <file>file:/home/greywolf/www/Code/prenda-staging/resources/assets/js/app.js</file>
             <file>file:/home/greywolf/www/Code/prenda-staging/resources/assets/sass/app.scss</file>
-            <file>file:/home/greywolf/www/Code/prenda-staging/app/Http/routes.php</file>
-            <file>file:/home/greywolf/www/Code/prenda-staging/resources/views/pages/city/index.blade.php</file>
+            <file>file:/home/greywolf/www/Code/prenda-staging/app/Http/Controllers/AuctionController.php</file>
+            <file>file:/home/greywolf/www/Code/prenda-staging/app/Http/Controllers/TypeController.php</file>
+            <file>file:/home/greywolf/www/Code/prenda-staging/resources/views/pages/auction/index.blade.php</file>
+            <file>file:/home/greywolf/www/Code/prenda-staging/resources/views/pages/auction/create.blade.php</file>
         </group>
     </open-files>
 </project-private>

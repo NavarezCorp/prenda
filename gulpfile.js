@@ -26,9 +26,13 @@ elixir(function(mix) {
             includePaths: [
                 paths.bootstrap + 'assets/stylesheets',
                 paths.fontawesome + 'scss',
-                paths.jqueryui + 'themes/base',
             ]
         }
+    )
+    .styles(
+        [
+            paths.jqueryui + 'themes/smoothness',
+        ]
     )
     .scripts(
         [
@@ -41,6 +45,6 @@ elixir(function(mix) {
     )
     .copy('resources/assets/js/app.js', 'public/js/app.js')
     .copy(paths.bootstrap + 'assets/fonts/bootstrap', 'public/fonts/bootstrap')
-    .copy(paths.jqueryui + 'themes/base/images', 'public/images')
+    .copy(paths.jqueryui + 'themes/smoothness/images', 'public/css/images')
     .copy(paths.fontawesome + 'fonts', 'public/fonts');
 });

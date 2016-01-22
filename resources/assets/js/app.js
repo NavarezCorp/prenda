@@ -1,8 +1,15 @@
-$(function(){
+$(document).ready(function (){
+    $.datepicker.setDefaults($.datepicker.regional['en']);
+    
     $("#datepicker").datepicker({
-        showOn: "button",
-        buttonImage: "images/calendar.gif",
-        buttonImageOnly: true,
-        buttonText: "Select date"
+        dateFormat: "DD, d MM, yy"
+    });
+    
+    $(".auction-schedule-calendar").click(function(){
+        $("#datepicker").datepicker('show');
+    });
+    
+    $(".auction-schedule-add").click(function(){
+        $("#datepicker").val('');
     });
 });

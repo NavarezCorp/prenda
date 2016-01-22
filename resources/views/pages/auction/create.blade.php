@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Add Type</div>
+                <div class="panel-heading">Add Auction Schedule</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/type') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/auction') }}">
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

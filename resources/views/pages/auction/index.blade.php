@@ -6,8 +6,23 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Manage Auction
-                    <a class="pull-right" href="" data-toggle="modal" data-target="#auction-schedule-popup">Add</a>
+                    <div class="row">
+                        <span class="pull-left col-lg-4 user-help">Manage Auction</span>
+                        <div class="col-lg-4 pull-right">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Enter auction schedule" id='datepicker'>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default auction-schedule-button auction-schedule-calendar" type="button">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </button>
+                                    <button class="btn btn-default auction-schedule-button auction-schedule-add" type="button">
+                                        <span class="glyphicon glyphicon-plus-sign"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <!--<a class="pull-right" href="" data-toggle="modal" data-target="#auction-schedule-popup">Add</a>-->
+                    </div>
                 </div>
 
                 <div class="panel-body">
@@ -46,8 +61,13 @@
                         <div class="row">
                             <label class="col-md-4 control-label">Auction Date</label>
                             <div class='col-sm-6'>
-                                <div class="form-group">
-                                    <input type="text" id="datepicker">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Enter auction schedule" id='datepicker'>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default calendar-button" type="button">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </button>
+                                    </span>
                                 </div>
                             </div>
                         </div>
