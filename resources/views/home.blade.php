@@ -30,7 +30,7 @@
                                 <img class="img-responsive" src="http://placehold.it/700x400">
                             </a>
                             <h4 class="text-center"><a href="{{ route('item.show', $value->id) }}">Php {{ $value->price }}</a></h4>
-                            <p class="">{{ $value->description }}</p>
+                            <p class="text-overflow">{{ $value->description }}</p>
                         </div>
                     @endforeach
                     </div>

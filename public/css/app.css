@@ -8001,4 +8001,9 @@ body {
   .auction-schedule-edit-action form div span button a {
     margin: 0; }
 
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
 /*# sourceMappingURL=app.css.map */
