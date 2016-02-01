@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\Auction;
 use Session;
+use Auth;
 
 class AuctionController extends Controller
 {
@@ -45,6 +46,15 @@ class AuctionController extends Controller
     public function store(Request $request)
     {
         //
+        $data = new Auction();
+        $data->users_id = Auth::user()->id;
+        $data->schedule = $request->schedule;
+        $data->save();
+        
+        //echo json_encode($data);
+        $data = DB::table('auctions')->orderBy('id', 'desc')->paginate(15);
+        
+        return view('pages.auction.index', ['data'=>$data]);
     }
 
     /**
@@ -67,6 +77,9 @@ class AuctionController extends Controller
     public function edit($id)
     {
         //
+        $data = Auction::find($id);
+        
+        return view('pages.auction.index', ['data'=>$data]);
     }
 
     /**

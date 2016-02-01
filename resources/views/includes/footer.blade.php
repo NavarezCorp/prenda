@@ -1,4 +1,4 @@
-<div class="container marketing">
+<div class="container marketing prenda-footer">
     <footer>
         <hr>
         <div class="row">

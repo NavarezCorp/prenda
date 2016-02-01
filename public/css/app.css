@@ -7913,12 +7913,12 @@ body {
 .register-prof-pic > img {
   height: 316px; }
 
-.footer-brand-image > img {
+.prenda-footer .footer-brand-image img {
   width: 80px;
   left: 10px;
   position: relative; }
 
-.footer-brand-name {
+.prenda-footer .footer-brand-name {
   position: relative;
   left: 4px;
   font-size: 18px; }
@@ -7932,14 +7932,14 @@ body {
 .user-help {
   padding-top: 7px; }
 
-.portfolio-item > h4 {
+.portfolio-item h4 {
   border: 1px solid #ddd;
   margin-bottom: 0;
   margin-top: 3px;
   padding: 10px;
   background-color: #f5f5f5; }
 
-.portfolio-item > p {
+.portfolio-item p {
   border: 1px solid #ddd;
   padding: 5px; }
 
@@ -7952,31 +7952,53 @@ body {
 .item-image-list {
   width: 770px; }
 
-.item-details > dt {
+.item-details dt {
   width: 100px;
   line-height: 45px;
   border-bottom: 1px dotted #ddd; }
+  .item-details dt strong {
+    color: #b92c28; }
 
-.item-details > dd {
+.item-details dd {
   margin-left: 120px;
   line-height: 45px;
   border-bottom: 1px dotted #ddd; }
+  .item-details dd strong {
+    color: #b92c28; }
 
 .item-view-button > a {
   margin-right: 5px; }
 
-.item-details > dt > strong, .item-details > dd > strong, .auction-list > dd > strong, .auction-list > dt > strong {
-  color: #b92c28; }
-
-.auction-list > dt {
+.auction-list dt {
   line-height: 45px;
-  border-bottom: 1px dotted #ddd; }
+  border-bottom: 1px dotted #ddd;
+  width: 270px; }
+  .auction-list dt strong {
+    color: #b92c28; }
 
-.auction-list > dd {
+.auction-list dd {
   line-height: 45px;
-  border-bottom: 1px dotted #ddd; }
+  border-bottom: 1px dotted #ddd;
+  margin-left: 285px; }
+  .auction-list dd div a, .auction-list dd div form {
+    margin-right: 10px; }
+  .auction-list dd strong {
+    color: #b92c28; }
 
-.auction-schedule-button {
+.auction-list .delete-button, .auction-list .edit-button {
+  border: none;
+  background-color: transparent; }
+
+.auction-schedule-button form div span button {
   height: 34px; }
+
+.auction-schedule-edit-action form div input#datepicker-edit {
+  top: 7px; }
+
+.auction-schedule-edit-action form div span button {
+  top: 2px;
+  height: 34px; }
+  .auction-schedule-edit-action form div span button a {
+    margin: 0; }
 
 /*# sourceMappingURL=app.css.map */
