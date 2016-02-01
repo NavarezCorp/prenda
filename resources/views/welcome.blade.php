@@ -31,8 +31,8 @@
                             <a href="{{ route('item.show', $value->id) }}">
                                 <img class="img-responsive" src="http://placehold.it/700x400">
                             </a>
-                            <h4><a href="{{ route('item.show', $value->id) }}">#{{ $value->ticket_no }}</a></h4>
-                            <p>Php {{ $value->price }}</p>
+                            <h4 class="text-center"><a href="{{ route('item.show', $value->id) }}">Php {{ $value->price }}</a></h4>
+                            <p class="text-overflow">{{ $value->description }}</p>
                         </div>
                     @endforeach
                     </div>
