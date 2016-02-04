@@ -56,15 +56,10 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('pawnshop') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <label class="col-md-4 control-label">Pawnshop</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="pawnshop" value="{{ old('pawnshop') }}">
-                                @if ($errors->has('pawnshop'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('pawnshop') }}</strong>
-                                    </span>
-                                @endif
+                                {{ Form::select('pawnshop', $data['pawnshops'], null, ['placeholder'=>'All Pawnshops', 'class'=>'form-control']) }}
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('branch') ? ' has-error' : '' }}">
@@ -76,12 +71,6 @@
                                         <strong>{{ $errors->first('branch') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Branch</label>
-                            <div class="col-md-6">
-                                {{ Form::select('province', $data['provinces'], null, ['placeholder'=>'All Provinces', 'class'=>'form-control']) }}
                             </div>
                         </div>
                         <div class="form-group">

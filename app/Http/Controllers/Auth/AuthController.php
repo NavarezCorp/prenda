@@ -71,10 +71,9 @@ class AuthController extends Controller
         ]);
     }
     
-    public function getRegister()
+    public function showRegistrationForm()
     {
-        $data['provinces'] = DB::table('provinces')->lists('name', 'id');
-        
-        return view('auth.register', ['data'=>$data]);
+        $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
+        return view('auth.register')->with(['data'=>$data]);
     }
 }

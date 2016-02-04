@@ -34,7 +34,9 @@ class ItemController extends Controller
     public function create()
     {
         //
-        return view('pages.item.create');
+        $data['categories'] = DB::table('categories')->lists('name', 'id');
+        $data['types'] = DB::table('types')->lists('name', 'id');
+        return view('pages.item.create', ['data'=>$data]);
     }
 
     /**
