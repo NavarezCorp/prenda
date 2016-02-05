@@ -1,7 +1,5 @@
 <?php
 
-//use DB;
-
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -24,36 +22,31 @@
 |
 */
 
+Route::get('/', function () {
+    $data['items'] = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(6);
+    $data['provinces'] = DB::table('provinces')->lists('name', 'id');
+    $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
+
+    return view('welcome', ['data'=>$data]);
+});
+
+Route::resource('contact', 'ContactController');
+Route::resource('pricing', 'PricingController');
+
 Route::group(['middleware' => ['web']], function () {
     //
-    Route::get('/', function () {
-        $data['items'] = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(6);
-        $data['provinces'] = DB::table('provinces')->lists('name', 'id');
-        $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
-        
-        return view('welcome', ['data'=>$data]);
-    });
 });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     
-    Route::get('/home', function(){
-        $data['items'] = DB::table('items')->where(['users_id'=>Auth::user()->id])->orderBy('ticket_no', 'desc')->paginate(6);
-        $data['provinces'] = DB::table('provinces')->lists('name', 'id');
-        $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
-        
-        return view('home', ['data'=>$data]);
-    });
-    
+    Route::resource('home', 'HomeController');
     Route::resource('item', 'ItemController');
     Route::resource('city', 'CityController');
     Route::resource('province', 'ProvinceController');
     Route::resource('category', 'CategoryController');
     Route::resource('type', 'TypeController');
-    Route::resource('pricing', 'PricingController');
     Route::resource('pawnshop', 'PawnshopController');
     Route::resource('branch', 'BranchController');
-    Route::resource('contact', 'ContactController');
     Route::resource('auction', 'AuctionController');
 });

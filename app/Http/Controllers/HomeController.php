@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use DB;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data['items'] = DB::table('items')->where(['users_id'=>Auth::user()->id])->orderBy('ticket_no', 'desc')->paginate(6);
+        $data['provinces'] = DB::table('provinces')->lists('name', 'id');
+        $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
+        
+        return view('home', ['data'=>$data]);
     }
 }
