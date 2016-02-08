@@ -45,7 +45,7 @@
                             Manage <span class="caret"></span>
                         </a>
 
-                        <ul class="dropdown-menu text-capitalize small" role="menu">
+                        <ul class="dropdown-menu text-capitalize" role="menu">
                             <li><a href="{{ url('/item') }}">Item</a></li>
                             <li><a href="{{ url('/city') }}">City</a></li>
                             <li><a href="{{ url('/province') }}">Province</a></li>
@@ -54,6 +54,7 @@
                             <li><a href="{{ url('/auction') }}">Auction Schedule</a></li>
                             @if (Auth::user()->name == 'Philip Radin Navarez')
                                 <li><a href="{{ url('/pawnshop') }}">Pawnshop</a></li>
+                                <li><a href="{{ url('/branch') }}">Branch</a></li>
                             @endif
                         </ul>
                     </li>
@@ -62,7 +63,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="glyphicon glyphicon-cog"></span
                         </a>
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu text-capitalize" role="menu">
                             <li><a>{{ Auth::user()->name }}</a></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>

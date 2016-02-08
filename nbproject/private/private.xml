@@ -3,13 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/greywolf/www/Code/prenda-staging/app/Http/Controllers/ContactController.php</file>
-            <file>file:/home/greywolf/www/Code/prenda-staging/app/Http/Controllers/ItemController.php</file>
-            <file>file:/home/greywolf/www/Code/prenda-staging/app/Http/Controllers/BranchController.php</file>
-            <file>file:/home/greywolf/www/Code/prenda-staging/app/Http/Controllers/CategoryController.php</file>
-            <file>file:/home/greywolf/www/Code/prenda-staging/app/Http/Controllers/CityController.php</file>
-            <file>file:/home/greywolf/www/Code/prenda-staging/app/Http/routes.php</file>
-            <file>file:/home/greywolf/www/Code/prenda-staging/app/Http/Controllers/AuctionController.php</file>
+            <file>file:/home/greywolf/www/Code/prenda-staging/app/Http/Controllers/PawnshopController.php</file>
+            <file>file:/home/greywolf/www/Code/prenda-staging/resources/views/includes/navigation.blade.php</file>
         </group>
     </open-files>
 </project-private>

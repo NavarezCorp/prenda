@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('pawnshop');
             $table->string('branch');
-            $table->integer('province_id')->unique();
-            $table->integer('city_id')->unique();
+            $table->integer('province_id');
+            $table->integer('city_id');
             $table->string('complete_address');
             $table->string('telephone_no');
             $table->string('mobile_no');

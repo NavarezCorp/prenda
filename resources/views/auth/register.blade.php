@@ -62,15 +62,10 @@
                                 {{ Form::select('pawnshop', $data['pawnshops'], null, ['placeholder'=>'All Pawnshops', 'class'=>'form-control']) }}
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('branch') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <label class="col-md-4 control-label">Branch</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="branch" value="{{ old('branch') }}">
-                                @if ($errors->has('branch'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('branch') }}</strong>
-                                    </span>
-                                @endif
+                                {{ Form::select('branch', $data['branches'], null, ['placeholder'=>'All Branches', 'class'=>'form-control']) }}
                             </div>
                         </div>
                         <div class="form-group">
