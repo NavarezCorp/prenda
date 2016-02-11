@@ -27,7 +27,8 @@
                     @foreach ($data['items'] as $key => $value)
                         <div class="col-md-4 portfolio-item">
                             <a href="{{ route('item.show', $value->id) }}">
-                                <img class="img-responsive" src="http://placehold.it/700x400">
+                                <!--<img class="img-responsive" src="http://placehold.it/700x400">-->
+                                <img class="img-responsive" src="$img = Image::make('public/foo.jpg')">
                             </a>
                             <h4 class="text-center"><a href="{{ route('item.show', $value->id) }}">Php {{ $value->price }}</a></h4>
                             <p class="text-overflow">{{ $value->description }}</p>

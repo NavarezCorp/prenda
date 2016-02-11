@@ -35,7 +35,7 @@
                                 <dt>Contact No(s)</dt>
                                 <dd></dd>
                                 <dt>Auction Date</dt>
-                                <dd>{{ $data->auction_schedule_id }}</dd>
+                                <dd>{{ App\Auction::find($data->auction_schedule_id)->schedule }}</dd>
                             </dl>
                         </div>
                     </div>

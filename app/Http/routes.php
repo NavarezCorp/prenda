@@ -22,19 +22,18 @@
 |
 */
 
-Route::get('/', function () {
-    $data['items'] = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(6);
-    $data['provinces'] = DB::table('provinces')->lists('name', 'id');
-    $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
-
-    return view('welcome', ['data'=>$data]);
-});
-
-Route::resource('contact', 'ContactController');
-Route::resource('pricing', 'PricingController');
-
 Route::group(['middleware' => ['web']], function () {
     //
+    Route::get('/', function () {
+        $data['items'] = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(6);
+        $data['provinces'] = DB::table('provinces')->lists('name', 'id');
+        $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
+
+        return view('welcome', ['data'=>$data]);
+    });
+
+    Route::resource('contact', 'ContactController');
+    Route::resource('pricing', 'PricingController');
 });
 
 Route::group(['middleware' => 'web'], function () {

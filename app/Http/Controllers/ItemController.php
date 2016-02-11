@@ -27,7 +27,6 @@ class ItemController extends Controller
     {
         //
         $data = DB::table('items')->where(['users_id'=>Auth::user()->id])->orderBy('ticket_no', 'desc')->paginate(15);
-        
         return view('pages.item.index', ['data'=>$data]);
     }
 
@@ -41,6 +40,7 @@ class ItemController extends Controller
         //
         $data['categories'] = DB::table('categories')->lists('name', 'id');
         $data['types'] = DB::table('types')->lists('name', 'id');
+        $data['auctions'] = DB::table('auctions')->where(['users_id'=>Auth::user()->id])->orderBy('id', 'desc')->lists('schedule', 'id');
         return view('pages.item.create', ['data'=>$data]);
     }
 
@@ -53,11 +53,18 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'schedule'=>'required',
+            'category'=>'required',
+            'type'=>'required',
+        ]);
+        
         $data = new Item();
+        $data->auction_schedule_id = $request->schedule;
         $data->users_id = Auth::user()->id;
         $data->ticket_no = $request->ticket_no;
-        $data->category_id = $request->category_id;
-        $data->type_id = $request->type_id;
+        $data->category_id = $request->category;
+        $data->type_id = $request->type;
         $data->price = $request->price;
         $data->description = $request->description;
         $data->save();
@@ -89,7 +96,10 @@ class ItemController extends Controller
     public function edit($id)
     {
         //
-        $data = Item::find($id);
+        $data['item'] = Item::find($id);
+        $data['categories'] = DB::table('categories')->lists('name', 'id');
+        $data['types'] = DB::table('types')->lists('name', 'id');
+        $data['auctions'] = DB::table('auctions')->where(['users_id'=>Auth::user()->id])->orderBy('id', 'desc')->lists('schedule', 'id');
         
         return view('pages.item.edit', ['data'=>$data]);
     }

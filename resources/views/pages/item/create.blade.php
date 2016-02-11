@@ -9,6 +9,17 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/item') }}">
                         {!! csrf_field() !!}
+                        <div class="form-group{{ $errors->has('schedule') ? ' has-error' : '' }}">
+                            <label class="col-md-2 control-label">Auction Schedule</label>
+                            <div class="col-md-6">
+                                {{ Form::select('schedule', $data['auctions'], null, ['class'=>'form-control']) }}
+                                @if ($errors->has('schedule'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('schedule') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('ticket_no') ? ' has-error' : '' }}">
                             <label class="col-md-2 control-label">Ticket #</label>
                             <div class="col-md-4">
@@ -20,16 +31,26 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
                             <label class="col-md-2 control-label">Category</label>
                             <div class="col-md-6">
-                                {{ Form::select('category', $data['categories'], null, ['placeholder'=>'All Categories', 'class'=>'form-control']) }}
+                                {{ Form::select('category', $data['categories'], null, ['class'=>'form-control']) }}
+                                @if ($errors->has('category'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('category') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('type_id') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                             <label class="col-md-2 control-label">Type</label>
                             <div class="col-md-6">
-                                {{ Form::select('type', $data['types'], null, ['placeholder'=>'All Types', 'class'=>'form-control']) }}
+                                {{ Form::select('type', $data['types'], null, ['class'=>'form-control']) }}
+                                @if ($errors->has('type'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('type') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
@@ -46,7 +67,7 @@
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                             <label class="col-md-2 control-label">Description</label>
                             <div class="col-md-8">
-                                <textarea class="form-control" rows="4" name="description" value="{{ old('description') }}"></textarea>
+                                <textarea class="form-control" rows="4" name="description">{{ old('description') }}</textarea>
                                 @if ($errors->has('description'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('description') }}</strong>
