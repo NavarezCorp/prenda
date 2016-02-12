@@ -65,6 +65,9 @@
                         </a>
                         <ul class="dropdown-menu text-capitalize" role="menu">
                             <li><a>{{ Auth::user()->name }}</a></li>
+                            @if (Auth::user()->name == 'Philip Radin Navarez')
+                                <li><a href="{{ url('/admin') }}">Admin</a></li>
+                            @endif
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>
                     </li>
@@ -75,6 +78,6 @@
 </nav>
 @if (!Request::is('login') && !Request::is('register'))
     <div class="container prof-pic">
-        <img class="img-responsive" src="/images/images2.png">
+        <img class="img-responsive" src="/images/1140x350_images2.jpg">
     </div>
 @endif
