@@ -8006,4 +8006,16 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
+.upload-image-container {
+  float: left;
+  margin-right: 5px;
+  height: 130px; }
+  .upload-image-container input {
+    position: relative;
+    top: -125px;
+    left: 6px;
+    opacity: 0;
+    width: 120px;
+    height: 120px; }
+
 /*# sourceMappingURL=app.css.map */

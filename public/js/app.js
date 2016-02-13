@@ -26,6 +26,34 @@ $(document).ready(function (){
         $(".auction-schedule-edit-action").addClass('hidden');
     });
     
+    $(".image-uploader").change(function(){
+        var image_id = '';
+        
+        switch($(this).attr('id')){
+            case 'image_1':
+                image_id = 'img_1';
+                break;
+                
+            case 'image_2':
+                image_id = 'img_2';
+                break;
+                
+            case 'image_3':
+                image_id = 'img_3';
+                break;
+                
+            case 'image_4':
+                image_id = 'img_4';
+                break;
+                
+            case 'image_5':
+                image_id = 'img_5';
+                break;
+        }
+        
+        previewFile(image_id, $(this).attr('id'));
+    });
+    
     /*
     $(".auction-schedule-add").click(function(){
         console.log('saving data...');
@@ -55,3 +83,19 @@ $(document).ready(function (){
     });
     */
 });
+
+function previewFile(image_id, file_id){
+    console.log(image_id);
+    console.log(file_id);
+    
+    var preview = document.getElementById(image_id);
+    var file = document.getElementById(file_id).files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function(){
+        preview.src = reader.result;
+    }
+    
+    if(file) reader.readAsDataURL(file);
+    else preview.src = "";
+}
