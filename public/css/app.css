@@ -8017,5 +8017,7 @@ body {
     opacity: 0;
     width: 120px;
     height: 120px; }
+  .upload-image-container input:hover {
+    cursor: pointer; }
 
 /*# sourceMappingURL=app.css.map */
