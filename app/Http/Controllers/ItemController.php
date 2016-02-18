@@ -8,8 +8,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Item;
+use App\Image;
 use Session;
 use Auth;
+use Storage;
+use Intervention\Image\ImageManagerStatic as Image_;
 
 class ItemController extends Controller
 {
@@ -53,6 +56,8 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         //
+        $destinationPath = 'images/' . Auth::user()->id;
+        
         $this->validate($request, [
             'schedule'=>'required',
             'category'=>'required',
@@ -68,6 +73,28 @@ class ItemController extends Controller
         $data->price = $request->price;
         $data->description = $request->description;
         $data->save();
+        
+        $item_id = $data->id;
+        
+        foreach($request->file('image') as $key => $photo){
+            if($photo){
+                if($photo->isValid()){
+                    $filename = 'image_' . $key . '.jpg';
+                    
+                    $photo->move($destinationPath, $filename);
+                    //Storage::put($destinationPath . '/' . $filename, file_get_contents($photo));
+                    
+                    $data = new Image();
+                    $data->items_id = $item_id;
+                    $data->url = $destinationPath . '/' . $filename;
+                    $data->save();
+                }
+                else{
+                    Session::flash('message', 'uploaded file is not valid');
+                    return redirect('/item');
+                }
+            }
+        }
         
         Session::flash('message', 'Item with ticket #' . $request->ticket_no . ' was successfully created');
         return redirect('/item');
@@ -96,10 +123,15 @@ class ItemController extends Controller
     public function edit($id)
     {
         //
+        //echo storage_path('images/2/image_0.jpg'); die();
+        
         $data['item'] = Item::find($id);
         $data['categories'] = DB::table('categories')->lists('name', 'id');
         $data['types'] = DB::table('types')->lists('name', 'id');
         $data['auctions'] = DB::table('auctions')->where(['users_id'=>Auth::user()->id])->orderBy('id', 'desc')->lists('schedule', 'id');
+        
+        $images = DB::table('images')->where(['items_id'=>$id])->get();
+        foreach($images as $key => $image) $data['images'][] = $image->url;
         
         return view('pages.item.edit', ['data'=>$data]);
     }

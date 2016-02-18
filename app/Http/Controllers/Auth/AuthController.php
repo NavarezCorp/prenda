@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use DB;
+//use Storage;
+use File;
 
 class AuthController extends Controller
 {
@@ -64,11 +66,18 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        $user = User::create([
+            'name'=>$data['name'],
+            'email'=>$data['email'],
+            'password'=>bcrypt($data['password']),
+            'pawnshop_id'=>(int)$data['pawnshop'],
+            'branch_id'=>(int)$data['branch'],
         ]);
+        
+        //Storage::makeDirectory(public_path('images/' . $user->id), 0777, TRUE, TRUE);
+        File::makeDirectory('images/' . $user->id, 0777, TRUE, TRUE);
+        
+        return $user;
     }
     
     public function showRegistrationForm()
