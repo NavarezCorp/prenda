@@ -23,7 +23,7 @@
                                 <dt><strong>PRICE</strong></dt>
                                 <dd><strong>Php {{ $data->price }}</strong></dd>
                                 <dt>Description</dt>
-                                <dd>Php {{ $data->description }}</dd>
+                                <dd>{{ $data->description }}</dd>
                                 <dt>Ticket #</dt>
                                 <dd>{{ $data->ticket_no }}</dd>
                                 <dt>Pawnshop</dt>
