@@ -54,6 +54,11 @@ $(document).ready(function (){
         previewFile(image_id, $(this).attr('id'));
     });
     
+    $(".item-photos-thumbnail > img").click(function(){
+        console.log($(this).attr('src'));
+        $(".item-photos-thumbnail-big").attr('src', $(this).attr('src'));
+    });
+    
     /*
     $(".auction-schedule-add").click(function(){
         console.log('saving data...');

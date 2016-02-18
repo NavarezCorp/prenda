@@ -22,11 +22,11 @@
                         <div class="col-md-4">
                             <dl class="dl-horizontal item-details">
                                 <dt><strong>PRICE</strong></dt>
-                                <dd><strong>Php {{ $data['items']->price }}</strong></dd>
+                                <dd><strong>Php {{ $data['items'][0]->price }}</strong></dd>
                                 <dt>Description</dt>
-                                <dd>{{ $data['items']->description }}</dd>
+                                <dd>{{ $data['items'][0]->description }}</dd>
                                 <dt>Ticket #</dt>
-                                <dd>{{ $data['items']->ticket_no }}</dd>
+                                <dd>{{ $data['items'][0]->ticket_no }}</dd>
                                 <dt>Pawnshop</dt>
                                 <dd></dd>
                                 <dt>Branch</dt>
@@ -36,7 +36,7 @@
                                 <dt>Contact No(s)</dt>
                                 <dd></dd>
                                 <dt>Auction Date</dt>
-                                <dd>{{ App\Auction::find($data['items']->auction_schedule_id)->schedule }}</dd>
+                                <dd>{{ App\Auction::find($data['items'][0]->auction_schedule_id)->schedule }}</dd>
                             </dl>
                         </div>
                     </div>
@@ -47,11 +47,13 @@
                             <img alt="image4" src="{{ !empty($data['images'][3]) ? $data['images'][3] : '/images/700x400.jpg' }}">
                             <img alt="image5" src="{{ !empty($data['images'][4]) ? $data['images'][4] : '/images/700x400.jpg' }}">
                         </div>
+                        {{--
                         <div class="item-view-button">
                             <a href="{{ url('/') }}" class="btn btn-primary" role="button">Tag item as sold</a>
-                            <a href="{{ route('item.edit', $data['items']->id) }}" class="btn btn-success" role="button">Edit item</a>
+                            <a href="{{ route('item.edit', $data['items'][0]->id) }}" class="btn btn-success" role="button">Edit item</a>
                             <a href="{{ url('/item/create') }}" class="btn btn-info" role="button">Post new item</a>
                         </div>
+                        --}}
                     </div>
                 </div>
             </div>

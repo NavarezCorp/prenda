@@ -35,10 +35,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('contact', 'ContactController');
     Route::resource('pricing', 'PricingController');
     
-    Route::get('/item/{id}', function($id){
-        //$data = Item::find($id);
-        $data = DB::table('items')->where(['id'=>$id])->get();
-        return view('pages.item.show', ['data'=>$data[0]]);
+    Route::get('/view/{id}', function($id){
+        $data['items'] = DB::table('items')->where(['id'=>$id])->get();
+        
+        $images = DB::table('images')->where(['items_id'=>$id])->get();
+        
+        foreach($images as $key => $image) $data['images'][] = App\Http\PrendaHelpers::process_image($image->url, 729, 486);
+        
+        return view('pages.item.view', ['data'=>$data]);
     });
 });
 

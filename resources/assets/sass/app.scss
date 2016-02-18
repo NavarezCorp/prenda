@@ -51,9 +51,22 @@ body {
 }
 
 .item-photos-thumbnail {
-    width: 177px;
-    height: 130px;
-    margin-right: 5px;
+    img {
+        width: 177px;
+        height: 130px;
+        margin-right: 5px;
+        border: 1px solid #ddd;
+        padding: 1px;
+    }
+    
+    img:hover {
+        cursor: pointer;
+    }
+}
+
+.item-photos-thumbnail-big {
+    border: 1px solid #ddd;
+    padding: 1px;
 }
 
 .navbar {

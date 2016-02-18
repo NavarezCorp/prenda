@@ -7859,10 +7859,19 @@ body {
   padding: 3px;
   border-bottom-color: transparent; }
 
-.item-photos-thumbnail {
+.item-photos-thumbnail img {
   width: 177px;
   height: 130px;
-  margin-right: 5px; }
+  margin-right: 5px;
+  border: 1px solid #ddd;
+  padding: 1px; }
+
+.item-photos-thumbnail img:hover {
+  cursor: pointer; }
+
+.item-photos-thumbnail-big {
+  border: 1px solid #ddd;
+  padding: 1px; }
 
 .navbar {
   margin-top: 45px;

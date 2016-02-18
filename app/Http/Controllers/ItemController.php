@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+//use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Item;
 use App\Image;
 use Session;
 use Auth;
-use Storage;
-use Intervention\Image\ImageManagerStatic as Image_;
+//use Storage;
+//use Intervention\Image\ImageManagerStatic as Image_;
+use App\Http\PrendaHelpers as ph;
 
 class ItemController extends Controller
 {
@@ -109,8 +110,13 @@ class ItemController extends Controller
     public function show($id)
     {
         //
-        $data = Item::find($id);
+        $data['items'] = Item::find($id);
+        $data['images'] = null;
         
+        $images = DB::table('images')->where(['items_id'=>$id])->get();
+        
+        foreach($images as $key => $image) $data['images'][] = ph::process_image($image->url, 729, 486);
+        //var_dump($data['items']); die();
         return view('pages.item.show', ['data'=>$data]);
     }
 
