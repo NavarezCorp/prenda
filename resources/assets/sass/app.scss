@@ -170,6 +170,13 @@ body {
         border: 1px solid #ddd;
         padding: 5px;
     }
+    
+    a {
+        img {
+            width: 349px;
+            height: 200px;
+        }
+    }
 }
 
 .clearboth {
@@ -177,7 +184,11 @@ body {
 }
 
 .item-primary-image {
-    margin-bottom: 10px;
+    img {
+        margin-bottom: 10px;
+        width: 728px;
+        height: 483px;
+    }
 }
 
 .item-image-list {

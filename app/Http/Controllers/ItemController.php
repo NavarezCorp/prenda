@@ -80,14 +80,36 @@ class ItemController extends Controller
         foreach($request->file('image') as $key => $photo){
             if($photo){
                 if($photo->isValid()){
-                    $filename = 'image_' . $key . '.jpg';
-                    
-                    $photo->move($destinationPath, $filename);
-                    //Storage::put($destinationPath . '/' . $filename, file_get_contents($photo));
-                    
+                    // original
+                    $filename_original = $request->ticket_no . '_image_' . $key . '_original.jpg';
+                    $photo->move($destinationPath, $filename_original);
                     $data = new Image();
                     $data->items_id = $item_id;
-                    $data->url = $destinationPath . '/' . $filename;
+                    $data->url = $destinationPath . '/' . $filename_original;
+                    $data->save();
+                    
+                    // for grid view
+                    $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_349x200.jpg';
+                    ph::resize_image($destinationPath . '/' . $filename_original, 349, 200, $filename);
+                    $data = new Image();
+                    $data->items_id = $item_id;
+                    $data->url = $filename;
+                    $data->save();
+                    
+                    // for view page (big)
+                    $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_725x483.jpg';
+                    ph::resize_image($destinationPath . '/' . $filename_original, 725, 483, $filename);
+                    $data = new Image();
+                    $data->items_id = $item_id;
+                    $data->url = $filename;
+                    $data->save();
+                    
+                    // for view page (thumbnail)
+                    $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_173x126.jpg';
+                    ph::resize_image($destinationPath . '/' . $filename_original, 173, 126, $filename);
+                    $data = new Image();
+                    $data->items_id = $item_id;
+                    $data->url = $filename;
                     $data->save();
                 }
                 else{
@@ -111,11 +133,11 @@ class ItemController extends Controller
     {
         //
         $data['items'] = Item::find($id);
-        $data['images'] = null;
+        //$data['images'] = null;
         
-        $images = DB::table('images')->where(['items_id'=>$id])->get();
+        //$images = DB::table('images')->where(['items_id'=>$id])->get();
         
-        foreach($images as $key => $image) $data['images'][] = ph::process_image($image->url, 729, 486);
+        //foreach($images as $key => $image) $data['images'][] = ph::process_image($image->url, 729, 486);
         //var_dump($data['items']); die();
         return view('pages.item.show', ['data'=>$data]);
     }

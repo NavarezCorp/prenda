@@ -7952,11 +7952,17 @@ body {
   border: 1px solid #ddd;
   padding: 5px; }
 
+.portfolio-item a img {
+  width: 349px;
+  height: 200px; }
+
 .clearboth {
   clear: both; }
 
-.item-primary-image {
-  margin-bottom: 10px; }
+.item-primary-image img {
+  margin-bottom: 10px;
+  width: 728px;
+  height: 483px; }
 
 .item-image-list {
   width: 770px; }

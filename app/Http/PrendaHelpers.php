@@ -14,13 +14,11 @@ use Response;
 class PrendaHelpers {
     public static function process_image($url, $width, $height){
         return (string)Image::make($url)->resize($width, $height)->encode('data-url');
-        
-        /*
-        $img = Image::make($url)->fit($width, $height, function($constraint){
+    }
+    
+    public static function resize_image($url, $width, $height, $new_filename){
+        Image::make($url)->fit($width, $height, function($constraint){
             $constraint->upsize();
-        });
-        
-        return (string)$img->encode('data-url');
-        */
+        })->save($new_filename);
     }
 }

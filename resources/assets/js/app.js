@@ -55,8 +55,27 @@ $(document).ready(function (){
     });
     
     $(".item-photos-thumbnail > img").click(function(){
-        console.log($(this).attr('src'));
-        $(".item-photos-thumbnail-big").attr('src', $(this).attr('src'));
+        var src = '';
+        
+        switch($(this).attr('alt')){
+            case 'image1':
+                src = '/images/' + $(this).attr('class') + '_image_1_725x483.jpg';
+                break;
+                
+            case 'image2':
+                src = '/images/' + $(this).attr('class') + '_image_2_725x483.jpg';
+                break;
+                
+            case 'image3':
+                src = '/images/' + $(this).attr('class') + '_image_3_725x483.jpg';
+                break;
+                
+            case 'image4':
+                src = '/images/' + $(this).attr('class') + '_image_4_725x483.jpg';
+                break;
+        }
+        
+        $(".item-photos-thumbnail-big").attr('src', src);
     });
     
     /*
