@@ -57,7 +57,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         //
-        $destinationPath = public_path() . '/images/' . Auth::user()->id;
+        $destinationPath = 'images/' . Auth::user()->id;
         
         $this->validate($request, [
             'schedule'=>'required',
@@ -82,15 +82,15 @@ class ItemController extends Controller
                 if($photo->isValid()){
                     // original
                     $filename_original = $request->ticket_no . '_image_' . $key . '_original.jpg';
+                    $photo->move($destinationPath, $filename_original);
                     $data = new Image();
                     $data->items_id = $item_id;
                     $data->url = $destinationPath . '/' . $filename_original;
                     $data->save();
-                    $photo->move($destinationPath, $filename_original);
-                    
+                    /*
                     // for grid view
                     $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_349x200.jpg';
-                    //ph::resize_image($destinationPath . '/' . $filename_original, 349, 200, $filename);
+                    ph::resize_image($destinationPath . '/' . $filename_original, 349, 200, $filename);
                     $data = new Image();
                     $data->items_id = $item_id;
                     $data->url = $filename;
@@ -98,7 +98,7 @@ class ItemController extends Controller
                     
                     // for view page (big)
                     $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_725x483.jpg';
-                    //ph::resize_image($destinationPath . '/' . $filename_original, 725, 483, $filename);
+                    ph::resize_image($destinationPath . '/' . $filename_original, 725, 483, $filename);
                     $data = new Image();
                     $data->items_id = $item_id;
                     $data->url = $filename;
@@ -106,11 +106,12 @@ class ItemController extends Controller
                     
                     // for view page (thumbnail)
                     $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_173x126.jpg';
-                    //ph::resize_image($destinationPath . '/' . $filename_original, 173, 126, $filename);
+                    ph::resize_image($destinationPath . '/' . $filename_original, 173, 126, $filename);
                     $data = new Image();
                     $data->items_id = $item_id;
                     $data->url = $filename;
                     $data->save();
+                    */
                 }
                 else{
                     Session::flash('message', 'uploaded file is not valid');
