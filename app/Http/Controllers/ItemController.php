@@ -87,7 +87,7 @@ class ItemController extends Controller
                     $data->items_id = $item_id;
                     $data->url = $destinationPath . '/' . $filename_original;
                     $data->save();
-                    /*
+                    
                     // for grid view
                     $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_349x200.jpg';
                     ph::resize_image($destinationPath . '/' . $filename_original, 349, 200, $filename);
@@ -111,7 +111,6 @@ class ItemController extends Controller
                     $data->items_id = $item_id;
                     $data->url = $filename;
                     $data->save();
-                    */
                 }
                 else{
                     Session::flash('message', 'uploaded file is not valid');
