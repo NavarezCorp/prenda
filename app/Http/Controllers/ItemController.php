@@ -57,7 +57,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         //
-        $destinationPath = 'images/' . Auth::user()->id;
+        $destinationPath = public_path() . 'images/' . Auth::user()->id;
         
         $this->validate($request, [
             'schedule'=>'required',
