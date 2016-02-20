@@ -27,7 +27,7 @@
                 @else
                     <li><a href="{{ url('/home') }}">Home</a></li>
                 @endif
-                <li><a href="{{ url('/') }}">Auction Schedule</a></li>
+                <li><a href="{{ url('/schedules') }}">Auction Schedule</a></li>
                 <li><a href="{{ url('/pricing') }}">Pricing</a></li>
             </ul>
 

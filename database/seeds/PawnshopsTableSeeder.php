@@ -12,6 +12,7 @@ class PawnshopsTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('pawnshops')->insert(['name'=>'Navarez Pawnshop', 'description'=>'Navarez Pawnshop, Inc.']);
         DB::table('pawnshops')->insert(['name'=>'Arbel Pawnshop', 'description'=>'Arbel Pawnshop, Inc.']);
         DB::table('pawnshops')->insert(['name'=>'Cebuana Lhuillier', 'description'=>'Cebuana Lhuillier']);
         DB::table('pawnshops')->insert(['name'=>'Celestial Pawnshop', 'description'=>'Celestial Pawnshop']);

@@ -38,16 +38,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/view/{id}', function($id){
         $data['items'] = DB::table('items')->where(['id'=>$id])->get();
         
-        /*
-        $images = DB::table('images')->where(['items_id'=>$id])->get();
-        
-        foreach($images as $key => $image){
-            //$data['images'][] = App\Http\PrendaHelpers::process_image($image->url, 729, 486);
-            $data['images'][] = $image->url;
-        }
-        */
-        
         return view('pages.item.view', ['data'=>$data]);
+    });
+    
+    Route::get('/schedules', function(){
+        $data = DB::table('auctions')->orderBy('id', 'desc')->paginate(15);
+        
+        return view('pages.auction.schedules', ['data'=>$data]);
     });
     
     Route::get('/phpinfo', function(){
