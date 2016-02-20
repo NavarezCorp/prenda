@@ -82,11 +82,11 @@ class ItemController extends Controller
                 if($photo->isValid()){
                     // original
                     $filename_original = $request->ticket_no . '_image_' . $key . '_original.jpg';
-                    $photo->move($destinationPath, $filename_original);
                     $data = new Image();
                     $data->items_id = $item_id;
                     $data->url = $destinationPath . '/' . $filename_original;
                     $data->save();
+                    $photo->move($destinationPath, $filename_original);
                     
                     // for grid view
                     $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_349x200.jpg';
