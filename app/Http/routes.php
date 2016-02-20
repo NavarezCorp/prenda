@@ -49,6 +49,10 @@ Route::group(['middleware' => ['web']], function () {
         
         return view('pages.item.view', ['data'=>$data]);
     });
+    
+    Route::get('/phpinfo', function(){
+        phpinfo();
+    });
 });
 
 Route::group(['middleware' => 'web'], function () {
