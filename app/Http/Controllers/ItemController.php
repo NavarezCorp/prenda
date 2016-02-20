@@ -12,7 +12,7 @@ use App\Image;
 use Session;
 use Auth;
 //use Storage;
-//use Intervention\Image\ImageManagerStatic as Image_;
+use Intervention\Image\ImageManagerStatic as Image_;
 use App\Http\PrendaHelpers as ph;
 
 class ItemController extends Controller
@@ -82,7 +82,9 @@ class ItemController extends Controller
                 if($photo->isValid()){
                     // original
                     $filename_original = $request->ticket_no . '_image_' . $key . '_original.jpg';
-                    @$photo->move($destinationPath, $filename_original);
+                    //$photo->move($destinationPath, $filename_original);
+                    //echo $photo->getRealPath(); die();
+                    Image_::make($photo->getRealPath())->save($destinationPath . '/' . $filename_original);
                     $data = new Image();
                     $data->items_id = $item_id;
                     $data->url = $destinationPath . '/' . $filename_original;
