@@ -90,7 +90,7 @@ class ItemController extends Controller
                     
                     // for grid view
                     $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_349x200.jpg';
-                    ph::resize_image($destinationPath . '/' . $filename_original, 349, 200, $filename);
+                    //ph::resize_image($destinationPath . '/' . $filename_original, 349, 200, $filename);
                     $data = new Image();
                     $data->items_id = $item_id;
                     $data->url = $filename;
@@ -98,7 +98,7 @@ class ItemController extends Controller
                     
                     // for view page (big)
                     $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_725x483.jpg';
-                    ph::resize_image($destinationPath . '/' . $filename_original, 725, 483, $filename);
+                    //ph::resize_image($destinationPath . '/' . $filename_original, 725, 483, $filename);
                     $data = new Image();
                     $data->items_id = $item_id;
                     $data->url = $filename;
@@ -106,7 +106,7 @@ class ItemController extends Controller
                     
                     // for view page (thumbnail)
                     $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_173x126.jpg';
-                    ph::resize_image($destinationPath . '/' . $filename_original, 173, 126, $filename);
+                    //ph::resize_image($destinationPath . '/' . $filename_original, 173, 126, $filename);
                     $data = new Image();
                     $data->items_id = $item_id;
                     $data->url = $filename;
