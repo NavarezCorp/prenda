@@ -82,23 +82,23 @@
                             <div class="col-md-9">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="upload-image-container">
-                                        <img id="img_1" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="/{{ !empty($data['images'][0]) ? $data['images'][0] : 'images/700x400.jpg' }}" data-holder-rendered="true">
+                                        <img id="img_1" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="/images/{{ $data['item']->users_id }}/{{ $data['item']->ticket_no }}_image_0_173x126.jpg" data-holder-rendered="true">
                                         <input type="file" name="image[]" class="image-uploader" id="image_1">
                                     </div>
                                     <div class="upload-image-container">
-                                        <img id="img_2" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="/{{ !empty($data['images'][1]) ? $data['images'][1] : 'images/700x400.jpg' }}" data-holder-rendered="true">
+                                        <img id="img_2" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="/images/{{ $data['item']->users_id }}/{{ $data['item']->ticket_no }}_image_1_173x126.jpg" data-holder-rendered="true">
                                         <input type="file" name="image[]" class="image-uploader" id="image_2">
                                     </div>
                                     <div class="upload-image-container">
-                                        <img id="img_3" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="/{{ !empty($data['images'][2]) ? $data['images'][2] : 'images/700x400.jpg' }}" data-holder-rendered="true">
+                                        <img id="img_3" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="/images/{{ $data['item']->users_id }}/{{ $data['item']->ticket_no }}_image_2_173x126.jpg" data-holder-rendered="true">
                                         <input type="file" name="image[]" class="image-uploader" id="image_3">
                                     </div>
                                     <div class="upload-image-container">
-                                        <img id="img_4" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="/{{ !empty($data['images'][3]) ? $data['images'][3] : 'images/700x400.jpg' }}" data-holder-rendered="true">
+                                        <img id="img_4" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="/images/{{ $data['item']->users_id }}/{{ $data['item']->ticket_no }}_image_3_173x126.jpg" data-holder-rendered="true">
                                         <input type="file" name="image[]" class="image-uploader" id="image_4">
                                     </div>
                                     <div class="upload-image-container">
-                                        <img id="img_5" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="/{{ !empty($data['images'][4]) ? $data['images'][4] : 'images/700x400.jpg' }}" data-holder-rendered="true">
+                                        <img id="img_5" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="/images/{{ $data['item']->users_id }}/{{ $data['item']->ticket_no }}_image_4_173x126.jpg" data-holder-rendered="true">
                                         <input type="file" name="image[]" class="image-uploader" id="image_5">
                                     </div>
                                 </div>

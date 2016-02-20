@@ -82,8 +82,6 @@ class ItemController extends Controller
                 if($photo->isValid()){
                     // original
                     $filename_original = $request->ticket_no . '_image_' . $key . '_original.jpg';
-                    //$photo->move($destinationPath, $filename_original);
-                    //echo $photo->getRealPath(); die();
                     Image_::make($photo->getRealPath())->save($destinationPath . '/' . $filename_original);
                     $data = new Image();
                     $data->items_id = $item_id;
@@ -160,8 +158,8 @@ class ItemController extends Controller
         $data['types'] = DB::table('types')->lists('name', 'id');
         $data['auctions'] = DB::table('auctions')->where(['users_id'=>Auth::user()->id])->orderBy('id', 'desc')->lists('schedule', 'id');
         
-        $images = DB::table('images')->where(['items_id'=>$id])->get();
-        foreach($images as $key => $image) $data['images'][] = $image->url;
+        //$images = DB::table('images')->where(['items_id'=>$id])->get();
+        //foreach($images as $key => $image) $data['images'][] = $image->url;
         
         return view('pages.item.edit', ['data'=>$data]);
     }
