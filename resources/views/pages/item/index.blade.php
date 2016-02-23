@@ -35,8 +35,8 @@
                                 <tr>
                                     <td>{{ $value->id }}</td>
                                     <td>{{ $value->ticket_no }}</td>
-                                    <td>{{ $value->category_id }}</td>
-                                    <td>{{-- App\Type::find($value->type_id)->name --}}</td>
+                                    <td>{{ App\Category::find($value->category_id)->name }}</td>
+                                    <td>{{ App\Type::find($value->type_id)->name }}</td>
                                     <td>{{ $value->price }}</td>
                                     <td>{{ ($value->is_sold == 0) ? 'No' : 'Yes' }}</td>
                                     <td class="table-tools-column">
