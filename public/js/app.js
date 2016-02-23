@@ -59,19 +59,19 @@ $(document).ready(function (){
         
         switch($(this).attr('alt')){
             case 'image1':
-                src = '/images/' + $(this).attr('class') + '_image_1_725x483.jpg';
+                src = '/images/' + $(this).attr('class') + '/image_1_725x483.jpg';
                 break;
                 
             case 'image2':
-                src = '/images/' + $(this).attr('class') + '_image_2_725x483.jpg';
+                src = '/images/' + $(this).attr('class') + '/image_2_725x483.jpg';
                 break;
                 
             case 'image3':
-                src = '/images/' + $(this).attr('class') + '_image_3_725x483.jpg';
+                src = '/images/' + $(this).attr('class') + '/image_3_725x483.jpg';
                 break;
                 
             case 'image4':
-                src = '/images/' + $(this).attr('class') + '_image_4_725x483.jpg';
+                src = '/images/' + $(this).attr('class') + '/image_4_725x483.jpg';
                 break;
         }
         

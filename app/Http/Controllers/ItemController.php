@@ -14,6 +14,7 @@ use Auth;
 //use Storage;
 use Intervention\Image\ImageManagerStatic as Image_;
 use App\Http\PrendaHelpers as ph;
+use Illuminate\Support\Facades\File as File;
 
 class ItemController extends Controller
 {
@@ -57,8 +58,6 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         //
-        $destinationPath = 'images/' . Auth::user()->id;
-        
         $this->validate($request, [
             'schedule'=>'required',
             'category'=>'required',
@@ -76,12 +75,14 @@ class ItemController extends Controller
         $data->save();
         
         $item_id = $data->id;
+        $destinationPath = 'images/' . Auth::user()->id . '/' . $request->ticket_no;
+        File::makeDirectory($destinationPath, 0777, TRUE, TRUE);
         
         foreach($request->file('image') as $key => $photo){
             if($photo){
                 if($photo->isValid()){
                     // original
-                    $filename_original = $request->ticket_no . '_image_' . $key . '_original.jpg';
+                    $filename_original = 'image_' . $key . '_original.jpg';
                     Image_::make($photo->getRealPath())->save($destinationPath . '/' . $filename_original);
                     $data = new Image();
                     $data->items_id = $item_id;
@@ -89,7 +90,7 @@ class ItemController extends Controller
                     $data->save();
                     
                     // for grid view
-                    $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_349x200.jpg';
+                    $filename = $destinationPath . '/' . 'image_' . $key . '_349x200.jpg';
                     ph::resize_image($destinationPath . '/' . $filename_original, 349, 200, $filename);
                     $data = new Image();
                     $data->items_id = $item_id;
@@ -97,7 +98,7 @@ class ItemController extends Controller
                     $data->save();
                     
                     // for view page (big)
-                    $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_725x483.jpg';
+                    $filename = $destinationPath . '/' . 'image_' . $key . '_725x483.jpg';
                     ph::resize_image($destinationPath . '/' . $filename_original, 725, 483, $filename);
                     $data = new Image();
                     $data->items_id = $item_id;
@@ -105,7 +106,7 @@ class ItemController extends Controller
                     $data->save();
                     
                     // for view page (thumbnail)
-                    $filename = $destinationPath . '/' . $request->ticket_no . '_image_' . $key . '_173x126.jpg';
+                    $filename = $destinationPath . '/' . 'image_' . $key . '_173x126.jpg';
                     ph::resize_image($destinationPath . '/' . $filename_original, 173, 126, $filename);
                     $data = new Image();
                     $data->items_id = $item_id;
@@ -133,12 +134,7 @@ class ItemController extends Controller
     {
         //
         $data['items'] = Item::find($id);
-        //$data['images'] = null;
         
-        //$images = DB::table('images')->where(['items_id'=>$id])->get();
-        
-        //foreach($images as $key => $image) $data['images'][] = ph::process_image($image->url, 729, 486);
-        //var_dump($data['items']); die();
         return view('pages.item.show', ['data'=>$data]);
     }
 
@@ -151,15 +147,10 @@ class ItemController extends Controller
     public function edit($id)
     {
         //
-        //echo storage_path('images/2/image_0.jpg'); die();
-        
         $data['item'] = Item::find($id);
         $data['categories'] = DB::table('categories')->lists('name', 'id');
         $data['types'] = DB::table('types')->lists('name', 'id');
         $data['auctions'] = DB::table('auctions')->where(['users_id'=>Auth::user()->id])->orderBy('id', 'desc')->lists('schedule', 'id');
-        
-        //$images = DB::table('images')->where(['items_id'=>$id])->get();
-        //foreach($images as $key => $image) $data['images'][] = $image->url;
         
         return view('pages.item.edit', ['data'=>$data]);
     }
@@ -174,13 +165,47 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'schedule'=>'required',
+            'category'=>'required',
+            'type'=>'required',
+        ]);
+        
         $data = Item::find($id);
         $data->ticket_no = $request->ticket_no;
-        $data->category_id = $request->category_id;
-        $data->type_id = $request->type_id;
+        $data->category_id = $request->category;
+        $data->type_id = $request->type;
         $data->price = $request->price;
         $data->description = $request->description;
         $data->save();
+        
+        $destinationPath = 'images/' . Auth::user()->id . '/' . $request->ticket_no;
+        
+        foreach($request->file('image') as $key => $photo){
+            if($photo){
+                if($photo->isValid()){
+                    // original
+                    $filename_original = 'image_' . $key . '_original.jpg';
+                    Image_::make($photo->getRealPath())->save($destinationPath . '/' . $filename_original);
+                    
+                    // for grid view
+                    $filename = $destinationPath . '/' . 'image_' . $key . '_349x200.jpg';
+                    ph::resize_image($destinationPath . '/' . $filename_original, 349, 200, $filename);
+                    
+                    // for view page (big)
+                    $filename = $destinationPath . '/' . 'image_' . $key . '_725x483.jpg';
+                    ph::resize_image($destinationPath . '/' . $filename_original, 725, 483, $filename);
+                    
+                    // for view page (thumbnail)
+                    $filename = $destinationPath . '/' . 'image_' . $key . '_173x126.jpg';
+                    ph::resize_image($destinationPath . '/' . $filename_original, 173, 126, $filename);
+                }
+                else{
+                    Session::flash('message', 'uploaded file is not valid');
+                    return redirect('/item');
+                }
+            }
+        }
         
         Session::flash('message', 'Item with ticket #' . $request->ticket_no . ' was successfully updated');
         return redirect('/item');

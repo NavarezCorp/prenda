@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="col-md-8 item-primary-image">
                             {{-- <img class="img-responsive" src="http://placehold.it/750x500"> --}}
-                            <img data-src="holder.js/200x200" class="img-responsive item-photos-thumbnail-big" alt="200x200" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}_image_0_725x483.jpg" data-holder-rendered="true">
+                            <img data-src="holder.js/200x200" class="img-responsive item-photos-thumbnail-big" alt="200x200" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}/image_0_725x483.jpg" data-holder-rendered="true">
                         </div>
                         <div class="col-md-4">
                             <dl class="dl-horizontal item-details">
@@ -42,10 +42,10 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-8 item-image-list item-photos-thumbnail">
-                            <img alt="image1" class="{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}_image_1_173x126.jpg">
-                            <img alt="image2" class="{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}_image_2_173x126.jpg">
-                            <img alt="image3" class="{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}_image_3_173x126.jpg">
-                            <img alt="image4" class="{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}_image_4_173x126.jpg">
+                            <img alt="image1" class="{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}/image_1_173x126.jpg">
+                            <img alt="image2" class="{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}/image_2_173x126.jpg">
+                            <img alt="image3" class="{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}/image_3_173x126.jpg">
+                            <img alt="image4" class="{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}/image_4_173x126.jpg">
                         </div>
                         {{--
                         <div class="item-view-button">
