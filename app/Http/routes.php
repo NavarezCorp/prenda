@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::resource('contact', 'ContactController');
     Route::resource('pricing', 'PricingController');
+    Route::resource('about', 'AboutController');
     
     Route::get('/view/{id}', function($id){
         $data['items'] = DB::table('items')->where(['id'=>$id])->get();
