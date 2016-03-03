@@ -78,6 +78,12 @@ $(document).ready(function (){
         $(".item-photos-thumbnail-big").attr('src', src);
     });
     
+    $(".select-pawnshop").change(function(){
+        $('.add-branch').removeClass('disabled-link');
+        //$('.add-branch').removeAttr('disabled');
+        $('.select-branch').removeAttr('disabled');
+    });
+    
     /*
     $(".auction-schedule-add").click(function(){
         console.log('saving data...');

@@ -26,15 +26,25 @@ Route::group(['middleware' => ['web']], function () {
     //
     Route::get('/', function () {
         $data['items'] = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(6);
-        $data['provinces'] = DB::table('provinces')->lists('name', 'id');
+        //$data['provinces'] = DB::table('provinces')->lists('name', 'id');
+        $provinces = DB::table('provinces')->orderBy('name', 'asc')->get();
         $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
-
+        
+        foreach($provinces as $value){
+            $res = DB::table('cities')->where('description', 'like', '%' . strtolower($value->name) . '%')->get();
+            
+            if($res){
+                foreach($res as $val) $data['provinces'][strtolower($value->name)][] = $val->name;
+            }
+        }
+        
         return view('welcome', ['data'=>$data]);
     });
 
     Route::resource('contact', 'ContactController');
     Route::resource('pricing', 'PricingController');
     Route::resource('about', 'AboutController');
+    Route::resource('branch', 'BranchController');
     
     Route::get('/view/{id}', function($id){
         $data['items'] = DB::table('items')->where(['id'=>$id])->get();
@@ -63,7 +73,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('category', 'CategoryController');
     Route::resource('type', 'TypeController');
     Route::resource('pawnshop', 'PawnshopController');
-    Route::resource('branch', 'BranchController');
     Route::resource('auction', 'AuctionController');
     Route::resource('admin', 'AdminController');
 });

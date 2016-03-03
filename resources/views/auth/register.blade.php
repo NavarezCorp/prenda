@@ -59,14 +59,20 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Pawnshop</label>
                             <div class="col-md-6">
-                                {{ Form::select('pawnshop', $data['pawnshops'], null, ['placeholder'=>'All Pawnshops', 'class'=>'form-control']) }}
+                                {{ Form::select('pawnshop', $data['pawnshops'], null, ['placeholder'=>'All Pawnshops', 'class'=>'form-control select-pawnshop']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">Branch</label>
                             <div class="col-md-6">
-                                {{ Form::select('branch', $data['branches'], null, ['placeholder'=>'All Branches', 'class'=>'form-control']) }}
+                                {{ Form::select('branch', $data['branches'], null, ['placeholder'=>'All Branches', 'class'=>'form-control select-branch', 'disabled']) }}
                             </div>
+                            <a class="add-branch disabled-link" href="{{ url('/branch/create') }}">Add</a>
+                            {{--
+                            <button class="btn btn-default add-branch" type="submit" disabled="disabled">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                            --}}
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

@@ -11,7 +11,7 @@ class BranchController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
     
     /**
@@ -32,6 +32,9 @@ class BranchController extends Controller
     public function create()
     {
         //
+        $data = '';
+        
+        return view('pages.branch.create', ['data'=>$data]);
     }
 
     /**
