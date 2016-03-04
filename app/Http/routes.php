@@ -25,8 +25,17 @@
 Route::group(['middleware' => ['web']], function(){
     //
     Route::get('/search/{filter}', function($filter){
-        var_dump($filter);
-        die();
+        $data = '';
+        $filter_arr = explode(':', $filter);
+        
+        switch($filter_arr[0]){
+            case 'province':
+                $province = DB::table('provinces')->where('id', $filter_arr[1])->first();
+                $data['cities'] = DB::table('cities')->where('description', 'like', '%' . strtolower($province->name) . '%')->get();
+                break;
+        }
+        
+        echo json_encode($data);
     });
     
     Route::get('/', function(){

@@ -81,7 +81,17 @@ $(document).ready(function (){
     $(".select-pawnshop").change(function(){
         //$('.add-branch').removeClass('disabled-link');
         //$('.add-branch').removeAttr('disabled');
-        $('.select-branch').removeAttr('disabled');
+        //$('.select-branch').removeAttr('disabled');
+    });
+    
+    $(".select-province").change(function(){
+        $.getJSON("/search/" + $(this).attr('name') + ':' + $(this).val(), function(data){
+            var html = '';
+            
+            for(var x = 0; x < data.cities.length; x++) html += '<option value="' + data.cities[x].id + '">' + data.cities[x].name + '</option>';
+            
+            $('.select-city').html(html);
+        });
     });
     
     

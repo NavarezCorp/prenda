@@ -85,7 +85,6 @@ class AuthController extends Controller
         $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
         
         $provinces = DB::table('provinces')->orderBy('name', 'asc')->first();
-        //var_dump($provinces->name); die();
         $data['cities'] = DB::table('cities')->where('description', 'like', '%' . strtolower($provinces->name) . '%')->lists('name', 'id');
         
         $data['provinces'] = DB::table('provinces')->orderBy('name', 'asc')->lists('name', 'id');
