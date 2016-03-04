@@ -22,9 +22,14 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web']], function(){
     //
-    Route::get('/', function () {
+    Route::get('/search/{filter}', function($filter){
+        var_dump($filter);
+        die();
+    });
+    
+    Route::get('/', function(){
         $data['items'] = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(6);
         //$data['provinces'] = DB::table('provinces')->lists('name', 'id');
         $provinces = DB::table('provinces')->orderBy('name', 'asc')->get();
@@ -36,8 +41,9 @@ Route::group(['middleware' => ['web']], function () {
             if($res){
                 foreach($res as $val) $data['provinces'][strtolower($value->name)][] = $val->name;
             }
+            else $data['provinces'][strtolower($value->name)][] = '';
         }
-        
+        //print_r($data['provinces']); die();
         return view('welcome', ['data'=>$data]);
     });
 
