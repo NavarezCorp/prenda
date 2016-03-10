@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             //$table->string('username')->unique();
             $table->string('password');
             $table->integer('pawnshop_id');
-            $table->string('branch_id');
+            $table->string('branch');
             $table->integer('province_id');
             $table->integer('city_id');
             $table->string('complete_address');

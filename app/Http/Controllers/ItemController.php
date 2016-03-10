@@ -134,7 +134,7 @@ class ItemController extends Controller
     {
         //
         $data['items'] = Item::find($id);
-        
+        var_dump($data['items']->pawnshop); die();
         return view('pages.item.show', ['data'=>$data]);
     }
 

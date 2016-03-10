@@ -118,6 +118,7 @@ $(document).ready(function (){
         };
     };
     
+    /*
     var states = [
         'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
         'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
@@ -125,11 +126,11 @@ $(document).ready(function (){
         'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
         'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
     ];
-   
-    $.getJSON("demo_ajax_json.js", function(result){
-        $.each(result, function(i, field){
-            $("div").append(field + " ");
-        });
+    */
+    var branches = '';
+    
+    $.getJSON("/search/branches", function(data){
+        branches = data;
     });
     
     $('#branches-autocomplete .typeahead').typeahead(
@@ -140,7 +141,7 @@ $(document).ready(function (){
         },
         {
             name: 'states',
-            source: substringMatcher(states)
+            source: substringMatcher(branches)
         }
     );
     // -----------------------

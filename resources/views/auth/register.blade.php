@@ -78,8 +78,30 @@
                             <label class="col-md-4 control-label">Branch</label>
                             <div class="col-md-6">
                                 <div id="branches-autocomplete">
-                                    <input class="typeahead form-control" type="text" placeholder="enter pawnshop branch">
+                                    <input name="branch" class="typeahead form-control" type="text" placeholder="enter pawnshop branch">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('telephone_no') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Telephone #</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="telephone_no" value="{{ old('telephone_no') }}">
+                                @if ($errors->has('telephone_no'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('telephone_no') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('mobile_no') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Mobile #</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="mobile_no" value="{{ old('mobile_no') }}">
+                                @if ($errors->has('mobile_no'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('mobile_no') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group">

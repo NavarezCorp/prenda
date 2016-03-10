@@ -28,7 +28,7 @@
                                 <dt>Ticket #</dt>
                                 <dd>{{ $data['items']->ticket_no }}</dd>
                                 <dt>Pawnshop</dt>
-                                <dd></dd>
+                                <dd>{{ $data['items']->pawnshop }}</dd>
                                 <dt>Branch</dt>
                                 <dd></dd>
                                 <dt>Location</dt>

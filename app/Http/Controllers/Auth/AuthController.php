@@ -65,13 +65,17 @@ class AuthController extends Controller
      * @return User
      */
     protected function create(array $data)
-    {
+    {   
         $user = User::create([
             'name'=>$data['name'],
             'email'=>$data['email'],
             'password'=>bcrypt($data['password']),
-            'pawnshop_id'=>(int)$data['pawnshop'],
-            'branch_id'=>(int)$data['branch'],
+            'pawnshop_id'=>(int) $data['pawnshop'],
+            'province_id'=>(int) $data['province'],
+            'city_id'=>(int) $data['city'],
+            'branch'=>$data['branch'],
+            'telephone_no'=>$data['telephone_no'],
+            'mobile_no'=>$data['mobile_no'],
         ]);
         
         //Storage::makeDirectory(public_path('images/' . $user->id), 0777, TRUE, TRUE);

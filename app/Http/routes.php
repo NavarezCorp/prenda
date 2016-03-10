@@ -33,6 +33,10 @@ Route::group(['middleware' => ['web']], function(){
                 $province = DB::table('provinces')->where('id', $filter_arr[1])->first();
                 $data['cities'] = DB::table('cities')->where('description', 'like', '%' . strtolower($province->name) . '%')->get();
                 break;
+            
+            case 'branches':
+                $data['branches'] = DB::table('branches')->orderBy('name', 'asc')->get();
+                break;
         }
         
         echo json_encode($data);
