@@ -22,21 +22,21 @@
                         <div class="col-md-4">
                             <dl class="dl-horizontal item-details">
                                 <dt><strong>PRICE</strong></dt>
-                                <dd><strong>Php {{ $data['items']->price }}</strong></dd>
+                                <dd><strong>Php {{ $data['items'][0]->price }}</strong></dd>
                                 <dt>Description</dt>
-                                <dd>{{ $data['items']->description }}</dd>
+                                <dd>{{ $data['items'][0]->description }}</dd>
                                 <dt>Ticket #</dt>
-                                <dd>{{ $data['items']->ticket_no }}</dd>
+                                <dd>{{ $data['items'][0]->ticket_no }}</dd>
                                 <dt>Pawnshop</dt>
-                                <dd>{{ $data['items']->pawnshop }}</dd>
+                                <dd>{{ App\Pawnshop::find(App\User::find($data['items'][0]->users_id)->pawnshop_id)->name }}</dd>
                                 <dt>Branch</dt>
-                                <dd></dd>
+                                <dd>{{ App\User::find($data['items'][0]->users_id)->branch }}</dd>
                                 <dt>Location</dt>
-                                <dd></dd>
+                                <dd>{{ App\City::find(App\User::find($data['items'][0]->users_id)->city_id)->name }} City, {{ App\Province::find(App\User::find($data['items'][0]->users_id)->province_id)->name }}</dd>
                                 <dt>Contact No(s)</dt>
-                                <dd></dd>
+                                <dd>{{ App\User::find($data['items'][0]->users_id)->telephone_no }} {{ App\User::find($data['items'][0]->users_id)->mobile_no }}</dd>
                                 <dt>Auction Date</dt>
-                                <dd>{{ App\Auction::find($data['items']->auction_schedule_id)->schedule }}</dd>
+                                <dd>{{ App\Auction::find($data['items'][0]->auction_schedule_id)->schedule }}</dd>
                             </dl>
                         </div>
                     </div>
