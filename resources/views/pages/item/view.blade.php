@@ -32,9 +32,13 @@
                                 <dt>Branch</dt>
                                 <dd>{{ App\User::find($data['items'][0]->users_id)->branch }}</dd>
                                 <dt>Location</dt>
-                                <dd>{{ App\City::find(App\User::find($data['items'][0]->users_id)->city_id)->name }} City, {{ App\Province::find(App\User::find($data['items'][0]->users_id)->province_id)->name }}</dd>
+                                <dd>
+                                    {{ !empty(App\City::find(App\User::find($data['items'][0]->users_id)->city_id)->name) ? App\City::find(App\User::find($data['items'][0]->users_id)->city_id)->name . 'City, ' : '' }} 
+                                    {{ !empty(App\Province::find(App\User::find($data['items'][0]->users_id)->province_id)->name) ? App\Province::find(App\User::find($data['items'][0]->users_id)->province_id)->name : '' }}</dd>
                                 <dt>Contact No(s)</dt>
-                                <dd>{{ App\User::find($data['items'][0]->users_id)->telephone_no }} {{ App\User::find($data['items'][0]->users_id)->mobile_no }}</dd>
+                                <dd>
+                                    {{ !empty(App\User::find($data['items'][0]->users_id)->telephone_no) ? App\User::find($data['items'][0]->users_id)->telephone_no : '' }} 
+                                    {{ !empty(App\User::find($data['items'][0]->users_id)->mobile_no) ? App\User::find($data['items'][0]->users_id)->mobile_no : '' }}</dd>
                                 <dt>Auction Date</dt>
                                 <dd>{{ App\Auction::find($data['items'][0]->auction_schedule_id)->schedule }}</dd>
                             </dl>
