@@ -127,10 +127,10 @@ $(document).ready(function (){
         'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
     ];
     */
-    var branches = '';
+    var branches_ = [];
     
     $.getJSON("/search/branches", function(data){
-        branches = data;
+        for(var i = 0; i < data.branches.length; i++) branches_[i] = data.branches[i].branch;
     });
     
     $('#branches-autocomplete .typeahead').typeahead(
@@ -141,7 +141,7 @@ $(document).ready(function (){
         },
         {
             name: 'states',
-            source: substringMatcher(branches)
+            source: substringMatcher(branches_)
         }
     );
     // -----------------------

@@ -35,7 +35,14 @@ Route::group(['middleware' => ['web']], function(){
                 break;
             
             case 'branches':
-                $data['branches'] = DB::table('branches')->orderBy('name', 'asc')->get();
+                $data['branches'] = DB::table('users')
+                    ->select('branch')
+                    ->where('branch', '!=', 'null')
+                    ->where('branch', '!=', '')
+                    ->groupBy('branch')
+                    ->orderBy('branch', 'asc')
+                    ->get();
+                
                 break;
         }
         
