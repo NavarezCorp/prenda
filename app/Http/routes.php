@@ -62,7 +62,7 @@ Route::group(['middleware' => ['web']], function(){
     });
     
     Route::get('/', function(){
-        $data['items'] = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(6);
+        $data['items'] = DB::table('items')->where(['is_sold'=>0])->orderBy('ticket_no', 'desc')->paginate(6);
         //$data['provinces'] = DB::table('provinces')->lists('name', 'id');
         $provinces = DB::table('provinces')->orderBy('name', 'asc')->get();
         $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
