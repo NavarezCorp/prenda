@@ -118,15 +118,6 @@ $(document).ready(function (){
         };
     };
     
-    /*
-    var states = [
-        'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-        'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-        'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-        'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-        'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-    ];
-    */
     var branches_ = [];
     
     $.getJSON("/search/branches", function(data){
@@ -169,11 +160,35 @@ $(document).ready(function (){
         .always(function(){
             console.log("complete");
         })
-        .complete(function(){
+        .complete(function(){auction-schedule-add
             console.log("second complete");
         });
     });
     */
+    
+    $("#dialog-confirm").dialog({
+        autoOpen: false,
+        resizable: false,
+        height: 180,
+        modal: true,
+        buttons: {
+            "Yes": function(){
+                $(this).dialog("close");
+                
+                $.getJSON("/update", {'type':'tag', 'id':$('.tag-as-sold').attr('id')}, function(result){
+                    $('.tag-as-sold').removeClass('btn-primary');
+                    $('.tag-as-sold').addClass('btn-default disabled');
+                });
+            },
+            "No": function(){
+                $(this).dialog("close");
+            }
+        }
+    });
+    
+    $(".tag-as-sold").click(function(){
+        $("#dialog-confirm").dialog('open');
+    });
 });
 
 function previewFile(image_id, file_id){

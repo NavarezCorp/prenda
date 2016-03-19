@@ -49,6 +49,18 @@ Route::group(['middleware' => ['web']], function(){
         echo json_encode($data);
     });
     
+    Route::get('/update', function(){
+        switch($_GET['type']){
+            case 'tag':
+                $data = App\Item::find($_GET['id']);
+                $data->is_sold = 1;
+                $data->save();
+                break;
+        }
+        
+        echo json_encode($data);
+    });
+    
     Route::get('/', function(){
         $data['items'] = DB::table('items')->orderBy('ticket_no', 'desc')->paginate(6);
         //$data['provinces'] = DB::table('provinces')->lists('name', 'id');

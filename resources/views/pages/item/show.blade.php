@@ -53,7 +53,11 @@
                             <img alt="image4" class="{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}" src="/images/{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}/image_4_173x126.jpg">
                         </div>
                         <div class="item-view-button">
-                            <a href="{{ url('/') }}" class="btn btn-primary" role="button">Tag item as sold</a>
+                            @if($data['items']->is_sold)
+                                <a class="btn btn-default tag-as-sold disabled" role="button">Tag item as sold</a>
+                            @else
+                                <a class="btn btn-primary tag-as-sold" role="button" id="{{ $data['items']->id }}">Tag item as sold</a>
+                            @endif
                             <a href="{{ route('item.edit', $data['items']->id) }}" class="btn btn-success" role="button">Edit item</a>
                             <a href="{{ url('/item/create') }}" class="btn btn-info" role="button">Post new item</a>
                         </div>
@@ -62,5 +66,10 @@
             </div>
         </div>
     </div>
+</div>
+<div id="dialog-confirm" title="Tag item as sold">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Are you sure you want to tag this item as sold?
+    </p>
 </div>
 @endsection

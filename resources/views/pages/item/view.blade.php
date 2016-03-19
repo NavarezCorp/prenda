@@ -52,13 +52,6 @@
                             <img alt="image3" class="{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}/image_3_173x126.jpg">
                             <img alt="image4" class="{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}" src="/images/{{ $data['items'][0]->users_id }}/{{ $data['items'][0]->ticket_no }}/image_4_173x126.jpg">
                         </div>
-                        {{--
-                        <div class="item-view-button">
-                            <a href="{{ url('/') }}" class="btn btn-primary" role="button">Tag item as sold</a>
-                            <a href="{{ route('item.edit', $data['items'][0]->id) }}" class="btn btn-success" role="button">Edit item</a>
-                            <a href="{{ url('/item/create') }}" class="btn btn-info" role="button">Post new item</a>
-                        </div>
-                        --}}
                     </div>
                 </div>
             </div>
