@@ -58,6 +58,10 @@ $(document).ready(function (){
         var src = '';
         
         switch($(this).attr('alt')){
+            case 'image0':
+                src = '/images/' + $(this).attr('class') + '/image_0_725x483.jpg';
+                break;
+                
             case 'image1':
                 src = '/images/' + $(this).attr('class') + '/image_1_725x483.jpg';
                 break;

@@ -47,10 +47,9 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-8 item-image-list item-photos-thumbnail">
-                            <img alt="image1" class="{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}" src="/images/{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}/image_1_173x126.jpg">
-                            <img alt="image2" class="{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}" src="/images/{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}/image_2_173x126.jpg">
-                            <img alt="image3" class="{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}" src="/images/{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}/image_3_173x126.jpg">
-                            <img alt="image4" class="{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}" src="/images/{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}/image_4_173x126.jpg">
+                            @foreach($data['images'] as $key => $value)
+                                <img alt="image{{ $key }}" class="{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}" src="/{{ $value->url }}">
+                            @endforeach
                         </div>
                         <div class="item-view-button">
                             @if($data['items']->is_sold)
