@@ -18,7 +18,14 @@ class PrendaHelpers {
     }
     
     public static function resize_image($url, $width, $height, $new_filename){
+        /*
         Image::make($url)->fit($width, $height, function($constraint){
+            $constraint->upsize();
+        })->save($new_filename);
+        */
+        
+        Image::make($url)->resize($width, null, function($constraint){
+            $constraint->aspectRatio();
             $constraint->upsize();
         })->save($new_filename);
     }

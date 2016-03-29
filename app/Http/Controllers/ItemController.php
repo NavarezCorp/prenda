@@ -134,7 +134,7 @@ class ItemController extends Controller
     {
         //
         $data['items'] = Item::find($id);
-        $data['images'] = DB::table('images')->where('url', 'like', '%173x126%')->get();
+        $data['images'] = DB::table('images')->where('items_id', $id)->where('url', 'like', '%173x126%')->get();
         
         return view('pages.item.show', ['data'=>$data]);
     }
