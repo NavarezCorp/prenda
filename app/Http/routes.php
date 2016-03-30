@@ -86,6 +86,7 @@ Route::group(['middleware' => ['web']], function(){
     
     Route::get('/view/{id}', function($id){
         $data['items'] = DB::table('items')->where(['id'=>$id])->get();
+        $data['images'] = DB::table('images')->where('items_id', $id)->where('url', 'like', '%173x126%')->get();
         
         return view('pages.item.view', ['data'=>$data]);
     });
