@@ -2,6 +2,10 @@
 @import "bootstrap";
 @import "font-awesome";
 
+body {
+    font-family: 'Lato';
+}
+
 .body-container {
     top: 65px;
     position: relative;
@@ -9,4 +13,487 @@
 
 .fa-btn {
     margin-right: 5px;
+}
+
+.table-tools-column {
+    width: 30px;
+    text-align: center;
+}
+
+.table-delete-button {
+    border: none;
+    background-color: transparent;
+}
+
+.img-thumbnail {
+    width: 130px;
+    height: 130px;
+}
+
+.show-edit-link {
+    margin-right: 15px;
+}
+
+.item-photo-container {
+    
+}
+
+.item-photo-ticket-no {
+    border: 1px solid;
+    clear: both;
+    padding: 3px
+}
+
+.item-photo-image {
+    border: 1px solid #ddd;
+    padding: 3px;
+    border-bottom-color: transparent;
+}
+
+.item-photos-thumbnail {
+    img {
+        width: 177px;
+        height: 130px;
+        margin-right: 5px;
+        border: 1px solid #ddd;
+        padding: 1px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    img:hover {
+        cursor: pointer;
+    }
+}
+
+.item-photos-thumbnail-big {
+    border: 1px solid #ddd;
+    padding: 1px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.navbar {
+    margin-top: 45px;
+    margin-bottom: 50px;
+}
+
+.brand-image {
+    position: relative;
+    top: -62px;
+    left: 520px;
+}
+
+.brand-name {
+    position: relative;
+    top: 120px;
+    left: 4px;
+}
+
+.navbar-brand {
+    margin-right: -100px;
+}
+
+.prof-pic img {
+    margin-bottom: 15px;
+    height: 350px;
+    width: 100%;
+    margin-left: 15px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pricing-table > tbody > tr > td {
+    padding: 25px;
+}
+
+.pricing-header {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.pricing-table > tbody > tr > td.no-border {
+    border-left: 1px solid transparent !important;
+    border-top: 1px solid transparent !important;
+}
+
+.search-selects > .row > select {
+    width: inherit;
+    margin-left: 15px;
+}
+
+.search-button {
+    height: 34px;
+}
+
+.login-prof-pic > img {
+    height: 260px;
+    max-height: 100%;
+}
+
+.register-prof-pic > img {
+    height: 316px;
+    max-height: 100%;
+}
+
+.prenda-footer {
+    .footer-brand-image {
+        img {
+            width: 80px;
+            left: 10px;
+            position: relative;
+        }
+    }
+
+    .footer-brand-name {
+        position: relative;
+        left: 4px;
+        font-size: 18px;
+    }
+}
+
+.map {
+    min-width: 300px;
+    min-height: 300px;
+    width: 100%;
+    height: 100%;
+}
+
+.user-help {
+    padding-top: 7px;
+}
+
+.portfolio-item {
+    h4 {
+        border: 1px solid #ddd;
+        margin-bottom: 0;
+        margin-top: 3px;
+        padding: 10px;
+        background-color: #f5f5f5;
+    }
+
+    p {
+        border: 1px solid #ddd;
+        padding: 5px;
+    }
+    
+    a {
+        img {
+            width: 349px;
+            height: 200px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}
+
+.clearboth {
+    clear: both;
+}
+
+.item-primary-image {
+    img {
+        margin-bottom: 10px;
+        width: 728px;
+        height: 483px;
+    }
+}
+
+.item-image-list {
+    width: 770px;
+}
+
+.item-details {
+    dt {
+        width: 100px;
+        line-height: 45px;
+        border-bottom: 1px dotted #ddd;
+        
+        strong {
+            color: #b92c28;
+        }
+    }
+    
+    dd {
+        margin-left: 120px;
+        line-height: 45px;
+        border-bottom: 1px dotted #ddd;
+        
+        strong {
+            color: #b92c28;
+        }
+    }
+}
+
+.item-view-button > a {
+    margin-right: 5px;
+}
+
+.auction-list {
+    dt {
+        line-height: 45px;
+        border-bottom: 1px dotted #ddd;
+        width: 270px;
+        
+        strong {
+            color: #b92c28;
+        }
+    }
+    
+    dd {
+        line-height: 45px;
+        border-bottom: 1px dotted #ddd;
+        margin-left: 285px;
+        
+        div {
+            a, form {
+                margin-right: 10px;
+            }
+        }
+        
+        strong {
+            color: #b92c28;
+        }
+    }
+    
+    .delete-button, .edit-button {
+        border: none;
+        background-color: transparent;
+    }
+}
+
+.auction-schedule-button {
+    form {
+        div {
+            span {
+                button {
+                    height: 34px;
+                }
+            }
+        }
+    }
+}
+
+.auction-schedule-edit-action {
+    form {
+        div {
+            input#datepicker-edit {
+                top: 7px;
+            }
+            
+            span {
+                button {
+                    top: 2px;
+                    height: 34px;
+                    
+                    a {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.upload-image-container {
+    float: left;
+    margin-right: 5px;
+    height: 130px;
+    
+    input {
+        position: relative;
+        top: -125px;
+        left: 6px;
+        opacity: 0;
+        width: 120px;
+        height: 120px;
+    }
+    
+    input:hover {
+        cursor: pointer;
+    }
+}
+
+a.add-branch {
+    position: relative;
+    top: 7px;
+}
+
+.disabled-link {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: #ccc;
+}
+
+button.add-branch {
+    background-color: #ddd;
+}
+
+/* "Submenus just don't have much of a place on the web right now, especially the mobile web. They will be removed with 3.0" - https://github.com/twbs/bootstrap/pull/6342 */
+.province-dropdown {
+    #province-dropdown-button{
+        margin-left: 5px;
+    }
+    
+    .dropdown-menu {
+        width: 213px;
+    }
+    
+    .dropdown-submenu {
+        position: relative;
+    }
+
+    .dropdown-submenu > .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+        margin-left: -1px;
+        -webkit-border-radius: 0 6px 6px 6px;
+        -moz-border-radius: 0 6px 6px;
+        border-radius: 0 6px 6px 6px;
+    }
+
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-submenu > a:after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-left-color: #ccc;
+        margin-top: 5px;
+        margin-right: -10px;
+    }
+
+    .dropdown-submenu:hover > a:after {
+        border-left-color: #fff;
+    }
+
+    .dropdown-submenu.pull-left {
+        float: none;
+    }
+
+    .dropdown-submenu.pull-left > .dropdown-menu {
+        left: -100%;
+        margin-left: 10px;
+        -webkit-border-radius: 6px 0 6px 6px;
+        -moz-border-radius: 6px 0 6px 6px;
+        border-radius: 6px 0 6px 6px;
+    }
+}
+
+#branches-autocomplete {
+    .typeahead-wrapper {
+        display: block;
+        margin: 50px 0;
+    }
+
+    .tt-dropdown-menu {
+        background-color: #fff;
+        border: 1px solid #000;
+    }
+
+    .tt-suggestion.tt-cursor {
+        background-color: #ccc;
+    }
+
+    .triggered-events {
+        float: right;
+        width: 500px;
+        height: 300px;
+    }
+
+    /*.typeahead,*/
+    .tt-query,
+    .tt-hint {
+      width: 396px;
+      height: 30px;
+      padding: 8px 12px;
+      font-size: 24px;
+      line-height: 30px;
+      border: 2px solid #ccc;
+      -webkit-border-radius: 8px;
+         -moz-border-radius: 8px;
+              border-radius: 8px;
+      outline: none;
+    }
+
+    .typeahead {
+      background-color: #fff;
+    }
+
+    .typeahead:focus {
+      border: 2px solid #0097cf;
+    }
+
+    .tt-query {
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+         -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+              box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+
+    .tt-hint {
+      color: #999
+    }
+
+    .tt-menu {
+      width: 422px;
+      margin: 12px 0;
+      padding: 8px 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      -webkit-border-radius: 8px;
+         -moz-border-radius: 8px;
+              border-radius: 8px;
+      -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+         -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+              box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    }
+
+    .tt-suggestion {
+      padding: 3px 20px;
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .tt-suggestion:hover {
+      cursor: pointer;
+      color: #fff;
+      background-color: #0097cf;
+    }
+
+    .tt-suggestion.tt-cursor {
+      color: #fff;
+      background-color: #0097cf;
+
+    }
+
+    .tt-suggestion p {
+      margin: 0;
+    }
+
+    .twitter-typeahead {
+        width: 100%;
+    }
+}
+
+.white-overlay {
+    color: white;
+    left: 1px;
+    top: 2px;
 }

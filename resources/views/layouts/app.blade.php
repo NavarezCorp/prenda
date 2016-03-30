@@ -7,6 +7,7 @@
         <title>Prenda</title>
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
         <link href="/css/app.css" rel="stylesheet">
+        <link href="/css/all.css" rel="stylesheet">
     </head>
     <body id="app-layout">
         @include('includes.navigation')

@@ -7,6 +7,9 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use DB;
+//use Storage;
+use File;
 
 class AuthController extends Controller
 {
@@ -62,11 +65,34 @@ class AuthController extends Controller
      * @return User
      */
     protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+    {   
+        $user = User::create([
+            'name'=>$data['name'],
+            'email'=>$data['email'],
+            'password'=>bcrypt($data['password']),
+            'pawnshop_id'=>(int) $data['pawnshop'],
+            'province_id'=>(int) $data['province'],
+            'city_id'=>(int) $data['city'],
+            'branch'=>$data['branch'],
+            'telephone_no'=>$data['telephone_no'],
+            'mobile_no'=>$data['mobile_no'],
         ]);
+        
+        //Storage::makeDirectory(public_path('images/' . $user->id), 0777, TRUE, TRUE);
+        File::makeDirectory('images/' . $user->id, 0777, TRUE, TRUE);
+        
+        return $user;
+    }
+    
+    public function showRegistrationForm()
+    {
+        $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
+        
+        $provinces = DB::table('provinces')->orderBy('name', 'asc')->first();
+        $data['cities'] = DB::table('cities')->where('description', 'like', '%' . strtolower($provinces->name) . '%')->lists('name', 'id');
+        
+        $data['provinces'] = DB::table('provinces')->orderBy('name', 'asc')->lists('name', 'id');
+        
+        return view('auth.register')->with(['data'=>$data]);
     }
 }

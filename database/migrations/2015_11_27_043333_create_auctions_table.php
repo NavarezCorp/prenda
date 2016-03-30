@@ -12,7 +12,7 @@ class CreateAuctionsTable extends Migration {
     public function up(){
         Schema::create('auctions', function(Blueprint $table){
             $table->increments('id');
-            $table->integer('users_id')->unique();
+            $table->integer('users_id');
             $table->string('schedule');
             $table->timestamps();
         });
