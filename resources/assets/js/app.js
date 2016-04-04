@@ -98,6 +98,9 @@ $(document).ready(function (){
         });
     });
     
+    $(".select-pawnshops").change(function(){
+        console.log($(this).val());
+    });
     
     // -----------------------
     var substringMatcher = function(strs){

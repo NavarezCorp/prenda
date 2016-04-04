@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading search-selects">
                     <div class="row">
-                        {{ Form::select('pawnshops', $data['pawnshops'], null, ['placeholder'=>'All Pawnshops', 'class'=>'form-control pull-left']) }}
+                        {{ Form::select('pawnshops', $data['pawnshops'], null, ['placeholder'=>'All Pawnshops', 'class'=>'form-control pull-left select-pawnshops']) }}
                         {{-- Form::select('branches', ['1'=>''], null, ['placeholder'=>'All Branches', 'class'=>'form-control pull-left']) --}}
                         {{-- Form::select('province', $data['provinces'], null, ['placeholder'=>'All Provinces', 'class'=>'form-control pull-left']) --}}
                         <div class="dropdown province-dropdown pull-left">
@@ -18,14 +18,14 @@
                                 @foreach($data['provinces'] as $key => $value)
                                     <li class="dropdown-submenu">
                                         @if($value[0])
-                                            <a tabindex="-1" href="#">{{ $key }} <span class="glyphicon glyphicon-triangle-right pull-right"></span></a>
+                                            <a tabindex="-1" href="/search/p:{{ $key }}">{{ $key }} <span class="glyphicon glyphicon-triangle-right pull-right"></span></a>
                                             <ul class="dropdown-menu">
                                                 @foreach($value as $key => $val)
-                                                    @if($val) <li><a tabindex="-1" href="/search/{{ $val }}">{{ $val }}</a></li> @endif
+                                                    @if($val) <li><a tabindex="-1" href="/search/c:{{ $val }}">{{ $val }}</a></li> @endif
                                                 @endforeach
                                             </ul>
                                         @else
-                                            <a tabindex="-1" href="#">{{ $key }} <span class="glyphicon glyphicon-triangle-right pull-right white-overlay"></span></a>
+                                            <a tabindex="-1" href="/search/p:{{ $key }}">{{ $key }} <span class="glyphicon glyphicon-triangle-right pull-right white-overlay"></span></a>
                                         @endif
                                     </li>
                                 @endforeach
