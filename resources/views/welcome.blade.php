@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading search-selects">
                     <div class="row">
-                        {{ Form::select('pawnshops', $data['pawnshops'], null, ['placeholder'=>'All Pawnshops', 'class'=>'form-control pull-left select-pawnshops']) }}
+                        {{ Form::select('pawnshops', $data['pawnshops'], !empty($data['filter_ps']) ? $data['filter_ps'] : null, ['placeholder'=>'All Pawnshops', 'class'=>'form-control pull-left select-pawnshops']) }}
                         {{-- Form::select('branches', ['1'=>''], null, ['placeholder'=>'All Branches', 'class'=>'form-control pull-left']) --}}
                         {{-- Form::select('province', $data['provinces'], null, ['placeholder'=>'All Provinces', 'class'=>'form-control pull-left']) --}}
                         <div class="dropdown province-dropdown pull-left">

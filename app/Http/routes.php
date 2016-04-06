@@ -28,6 +28,7 @@ Route::group(['middleware' => ['web']], function(){
         $data = '';
         $filter_arr = explode(':', $filter);
         
+        $data['filter_ps'] = '';
         $data['filter'] = '';
         $result_ = null;
         $data['items'] = null;
@@ -81,7 +82,6 @@ Route::group(['middleware' => ['web']], function(){
                 foreach($res as $value) $result_[] = $value;
                 
                 $data['items'] = new Illuminate\Pagination\LengthAwarePaginator($result_, count($result_), $perPage);
-                
                 $data['filter'] = $filter_arr[1];
                 
                 return view('welcome', ['data'=>$data]);
@@ -106,7 +106,6 @@ Route::group(['middleware' => ['web']], function(){
                 foreach($res as $value) $result_[] = $value;
                 
                 $data['items'] = new Illuminate\Pagination\LengthAwarePaginator($result_, count($result_), $perPage);
-                
                 $data['filter'] = $filter_arr[1];
                 
                 return view('welcome', ['data'=>$data]);
@@ -129,8 +128,8 @@ Route::group(['middleware' => ['web']], function(){
                 foreach($res as $value) $result_[] = $value;
                 
                 $data['items'] = new Illuminate\Pagination\LengthAwarePaginator($result_, count($result_), $perPage);
+                $data['filter_ps'] = $filter_arr[1];
                 
-                //echo json_encode($data);
                 return view('welcome', ['data'=>$data]);
                 
                 break;
