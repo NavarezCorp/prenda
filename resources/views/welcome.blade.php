@@ -11,8 +11,8 @@
                         {{-- Form::select('branches', ['1'=>''], null, ['placeholder'=>'All Branches', 'class'=>'form-control pull-left']) --}}
                         {{-- Form::select('province', $data['provinces'], null, ['placeholder'=>'All Provinces', 'class'=>'form-control pull-left']) --}}
                         <div class="dropdown province-dropdown pull-left">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="province-dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                All Provinces <span class="caret"></span>
+                            <button class="btn btn-default dropdown-toggle text-capitalize" type="button" id="province-dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {{ !empty($data['filter']) ? $data['filter'] : 'All Provinces' }} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu multi-level text-capitalize" role="menu" aria-labelledby="dropdownMenu">
                                 @foreach($data['provinces'] as $key => $value)

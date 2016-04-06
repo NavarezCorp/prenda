@@ -28,6 +28,7 @@ Route::group(['middleware' => ['web']], function(){
         $data = '';
         $filter_arr = explode(':', $filter);
         
+        $data['filter'] = '';
         $result_ = null;
         $data['items'] = null;
         $perPage = 6;
@@ -81,6 +82,8 @@ Route::group(['middleware' => ['web']], function(){
                 
                 $data['items'] = new Illuminate\Pagination\LengthAwarePaginator($result_, count($result_), $perPage);
                 
+                $data['filter'] = $filter_arr[1];
+                
                 return view('welcome', ['data'=>$data]);
                 
                 break;
@@ -104,6 +107,30 @@ Route::group(['middleware' => ['web']], function(){
                 
                 $data['items'] = new Illuminate\Pagination\LengthAwarePaginator($result_, count($result_), $perPage);
                 
+                $data['filter'] = $filter_arr[1];
+                
+                return view('welcome', ['data'=>$data]);
+                
+                break;
+                
+            case 'ps':
+                $res = DB::select("
+                    select i.* 
+                    from 
+                        items i,
+                        users u 
+                    where 
+                        u.pawnshop_id = '$filter_arr[1]' and 
+                        i.users_id = u.id and 
+                        i.is_sold = 0 
+                    order by i.ticket_no desc
+                ");
+                
+                foreach($res as $value) $result_[] = $value;
+                
+                $data['items'] = new Illuminate\Pagination\LengthAwarePaginator($result_, count($result_), $perPage);
+                
+                //echo json_encode($data);
                 return view('welcome', ['data'=>$data]);
                 
                 break;

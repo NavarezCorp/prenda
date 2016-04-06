@@ -99,7 +99,7 @@ $(document).ready(function (){
     });
     
     $(".select-pawnshops").change(function(){
-        console.log($(this).val());
+        window.location = '/search/ps:' + $(this).val();
     });
     
     // -----------------------
