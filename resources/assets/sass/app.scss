@@ -79,9 +79,9 @@ body {
 }
 
 .brand-image {
-    position: relative;
-    top: -62px;
-    left: 520px;
+    position: fixed;
+    top: -15px;
+    left: 50%;
 }
 
 .brand-name {
@@ -496,5 +496,13 @@ button.add-branch {
 .white-overlay {
     color: white;
     left: 1px;
+    top: 2px;
+}
+
+.thumbnail-delete {
+    float: right;
+    right: 16px;
+    position: relative;
+    color: white;
     top: 2px;
 }
