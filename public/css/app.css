@@ -7882,8 +7882,8 @@ body {
   margin-bottom: 50px; }
 
 .brand-image {
-  position: fixed;
-  top: -15px;
+  position: absolute;
+  top: -60px;
   left: 50%; }
 
 .brand-name {
