@@ -5764,7 +5764,7 @@ button.close {
 
 .fa {
   display: inline-block;
-  font: normal normal normal 14px / 1 FontAwesome;
+  font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -7964,7 +7964,8 @@ body {
   width: 349px;
   height: 200px;
   max-width: 100%;
-  max-height: 100%; }
+  max-height: 100%;
+  object-fit: contain; }
 
 .clearboth {
   clear: both; }
