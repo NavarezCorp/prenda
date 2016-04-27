@@ -7844,7 +7844,8 @@ body {
 
 .img-thumbnail {
   width: 130px;
-  height: 130px; }
+  height: 130px;
+  object-fit: contain; }
 
 .show-edit-link {
   margin-right: 15px; }
@@ -7866,7 +7867,8 @@ body {
   border: 1px solid #ddd;
   padding: 1px;
   max-width: 100%;
-  max-height: 100%; }
+  max-height: 100%;
+  object-fit: contain; }
 
 .item-photos-thumbnail img:hover {
   cursor: pointer; }
@@ -7973,7 +7975,8 @@ body {
 .item-primary-image img {
   margin-bottom: 10px;
   width: 728px;
-  height: 483px; }
+  height: 483px;
+  object-fit: contain; }
 
 .item-image-list {
   width: 770px; }
