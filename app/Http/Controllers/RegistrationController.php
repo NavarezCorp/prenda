@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use DB;
+use App\User;
+use Session;
 
 class RegistrationController extends Controller
 {
@@ -82,7 +84,24 @@ class RegistrationController extends Controller
     public function update(Request $request, $id)
     {
         //
-        echo 'update';
+        //var_dump($request); die();
+        $data = User::find($id);
+        $data->name = $request->name;
+        $data->email = $request->email;
+        
+        if($request->password) $data->password = bcrypt($request->password);
+        
+        $data->complete_address = $request->complete_address;
+        $data->pawnshop_id = (int) $request->pawnshop;
+        $data->province_id = (int) $request->province;
+        $data->city_id = (int) $request->city;
+        $data->branch = $request->branch;
+        $data->telephone_no = $request->telephone_no;
+        $data->mobile_no = $request->mobile_no;
+        $data->save();
+        
+        Session::flash('message', 'User information was successfully updated');
+        return redirect('/home');
     }
 
     /**
