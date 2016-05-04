@@ -64,7 +64,7 @@
                             <span class="glyphicon glyphicon-cog"></span
                         </a>
                         <ul class="dropdown-menu text-capitalize" role="menu">
-                            <li><a>{{ Auth::user()->name }}</a></li>
+                            <li><a href="{{ route('registration.edit', Auth::user()->id) }}">{{ Auth::user()->name }}</a></li>
                             @if (Auth::user()->name == 'Philip Radin Navarez')
                                 <li><a href="{{ url('/admin') }}">Admin</a></li>
                             @endif
@@ -76,7 +76,7 @@
         </div>
     </div>
 </nav>
-@if (!Request::is('login') && !Request::is('register'))
+@if (!Request::is('login') && !Request::is('register') && !Request::is('registration/*'))
     <div class="container prof-pic">
         <img class="img-responsive" src="/images/1140x350_images2.jpg">
     </div>

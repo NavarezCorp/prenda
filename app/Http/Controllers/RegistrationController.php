@@ -3,21 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use DB;
-use App\Auction;
-use Session;
-use Auth;
 
-class AuctionController extends Controller
+class RegistrationController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    
     /**
      * Display a listing of the resource.
      *
@@ -26,9 +16,7 @@ class AuctionController extends Controller
     public function index()
     {
         //
-        $data = DB::table('auctions')->orderBy('id', 'desc')->paginate(15);
-        
-        return view('pages.auction.index', ['data'=>$data]);
+        echo 'registration page...';
     }
 
     /**
@@ -39,7 +27,6 @@ class AuctionController extends Controller
     public function create()
     {
         //
-        return view('pages.auction.create');
     }
 
     /**
@@ -51,15 +38,6 @@ class AuctionController extends Controller
     public function store(Request $request)
     {
         //
-        $data = new Auction();
-        $data->users_id = Auth::user()->id;
-        $data->schedule = $request->schedule;
-        $data->save();
-        
-        //echo json_encode($data);
-        $data = DB::table('auctions')->orderBy('id', 'desc')->paginate(15);
-        
-        return view('pages.auction.index', ['data'=>$data]);
     }
 
     /**
@@ -71,6 +49,7 @@ class AuctionController extends Controller
     public function show($id)
     {
         //
+        echo 'user id: ' . $id;
     }
 
     /**
@@ -82,9 +61,15 @@ class AuctionController extends Controller
     public function edit($id)
     {
         //
-        $data = Auction::find($id);
+        $data['pawnshops'] = DB::table('pawnshops')->orderBy('name', 'asc')->lists('name', 'id');
         
-        return view('pages.auction.index', ['data'=>$data]);
+        $provinces = DB::table('provinces')->orderBy('name', 'asc')->first();
+        $data['cities'] = DB::table('cities')->orderBy('name', 'asc')->lists('name', 'id');
+        
+        $data['provinces'] = DB::table('provinces')->orderBy('name', 'asc')->lists('name', 'id');
+        $data['user'] = DB::table('users')->where('id', $id)->get();
+        
+        return view('pages.registration.edit')->with(['data'=>$data]);
     }
 
     /**
@@ -97,6 +82,7 @@ class AuctionController extends Controller
     public function update(Request $request, $id)
     {
         //
+        echo 'update';
     }
 
     /**
@@ -108,6 +94,5 @@ class AuctionController extends Controller
     public function destroy($id)
     {
         //
-        echo 'delete...';
     }
 }

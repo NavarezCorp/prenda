@@ -70,6 +70,7 @@ class AuthController extends Controller
             'name'=>$data['name'],
             'email'=>$data['email'],
             'password'=>bcrypt($data['password']),
+            'complete_address'=>$data['complete_address'],
             'pawnshop_id'=>(int) $data['pawnshop'],
             'province_id'=>(int) $data['province'],
             'city_id'=>(int) $data['city'],

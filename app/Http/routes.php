@@ -201,4 +201,5 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('pawnshop', 'PawnshopController');
     Route::resource('auction', 'AuctionController');
     Route::resource('admin', 'AdminController');
+    Route::resource('registration', 'RegistrationController');
 });

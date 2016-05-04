@@ -8,14 +8,14 @@
         </div>
         <div class="col-md-8">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Edit Registration Information</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="post" action="{{ route('registration.update', $data['user'][0]->id) }}">
                         {!! csrf_field() !!}
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Complete Name</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                <input type="text" class="form-control" name="name" value="{{ $data['user'][0]->name }}">
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -26,7 +26,7 @@
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">E-Mail</label>
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <input type="email" class="form-control" name="email" value="{{ $data['user'][0]->email }}">
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -59,7 +59,7 @@
                         <div class="form-group{{ $errors->has('complete_address') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Complete Address</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="complete_address" value="{{ old('complete_address') }}">
+                                <input type="text" class="form-control" name="complete_address" value="{{ $data['user'][0]->complete_address }}">
                                 @if ($errors->has('complete_address'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('complete_address') }}</strong>
@@ -70,33 +70,33 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Pawnshop</label>
                             <div class="col-md-6">
-                                {{ Form::select('pawnshop', $data['pawnshops'], null, ['class'=>'form-control select-pawnshop']) }}
+                                {{ Form::select('pawnshop', $data['pawnshops'], $data['user'][0]->pawnshop_id, ['class'=>'form-control select-pawnshop']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">Province</label>
                             <div class="col-md-6">
-                                {{ Form::select('province', $data['provinces'], null, ['class'=>'form-control select-province']) }}
+                                {{ Form::select('province', $data['provinces'], $data['user'][0]->province_id, ['class'=>'form-control select-province']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">City</label>
                             <div class="col-md-6">
-                                {{ Form::select('city', $data['cities'], null, ['class'=>'form-control select-city']) }}
+                                {{ Form::select('city', $data['cities'], $data['user'][0]->city_id, ['class'=>'form-control select-city']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">Branch</label>
                             <div class="col-md-6">
                                 <div id="branches-autocomplete">
-                                    <input name="branch" class="typeahead form-control" type="text" placeholder="enter pawnshop branch">
+                                    <input name="branch" class="typeahead form-control" type="text" placeholder="enter pawnshop branch" value="{{ $data['user'][0]->branch }}">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('telephone_no') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Telephone #</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="telephone_no" value="{{ old('telephone_no') }}">
+                                <input type="text" class="form-control" name="telephone_no" value="{{ $data['user'][0]->telephone_no }}">
                                 @if ($errors->has('telephone_no'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('telephone_no') }}</strong>
@@ -107,7 +107,7 @@
                         <div class="form-group{{ $errors->has('mobile_no') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Mobile #</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="mobile_no" value="{{ old('mobile_no') }}">
+                                <input type="text" class="form-control" name="mobile_no" value="{{ $data['user'][0]->mobile_no }}">
                                 @if ($errors->has('mobile_no'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('mobile_no') }}</strong>
@@ -118,7 +118,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i>Register
+                                    <i class="fa fa-btn fa-user"></i>Apply
                                 </button>
                             </div>
                         </div>
