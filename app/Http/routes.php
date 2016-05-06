@@ -113,22 +113,36 @@ Route::group(['middleware' => ['web']], function(){
                 break;
                 
             case 'ps':
-                $res = DB::select("
-                    select i.* 
-                    from 
-                        items i,
-                        users u 
-                    where 
-                        u.pawnshop_id = '$filter_arr[1]' and 
-                        i.users_id = u.id and 
-                        i.is_sold = 0 
-                    order by i.ticket_no desc
-                ");
-                
-                foreach($res as $value) $result_[] = $value;
-                
-                $data['items'] = new Illuminate\Pagination\LengthAwarePaginator($result_, count($result_), $perPage);
-                $data['filter_ps'] = $filter_arr[1];
+                if($filter_arr[1]){
+                    $res = DB::select("
+                        select i.* 
+                        from 
+                            items i,
+                            users u 
+                        where 
+                            u.pawnshop_id = '$filter_arr[1]' and 
+                            i.users_id = u.id and 
+                            i.is_sold = 0 
+                        order by i.ticket_no desc
+                    ");
+
+                    foreach($res as $value) $result_[] = $value;
+
+                    $data['items'] = new Illuminate\Pagination\LengthAwarePaginator($result_, count($result_), $perPage);
+                    $data['filter_ps'] = $filter_arr[1];
+                }
+                else{
+                    $data['items'] = DB::table('items')->where(['is_sold'=>0])->orderBy('ticket_no', 'desc')->paginate(6);
+                    $provinces = DB::table('provinces')->orderBy('name', 'asc')->get();
+                    $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
+
+                    foreach($provinces as $value){
+                        $res = DB::table('cities')->where('description', 'like', '%' . strtolower($value->name) . '%')->get();
+
+                        if($res) foreach($res as $val) $data['provinces'][strtolower($value->name)][] = $val->name;
+                        else $data['provinces'][strtolower($value->name)][] = '';
+                    }
+                }
                 
                 return view('welcome', ['data'=>$data]);
                 
