@@ -196,6 +196,10 @@ $(document).ready(function (){
     $(".tag-as-sold").click(function(){
         $("#dialog-confirm").dialog('open');
     });
+    
+    $(".delete-auction-schedule").click(function(){
+        return confirm("Do you want to delete this auction schedule?");
+    });
 });
 
 function previewFile(image_id, file_id){

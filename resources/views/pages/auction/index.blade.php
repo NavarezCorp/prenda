@@ -52,7 +52,7 @@
                                     <form action="/auction/{{ $value->id }}" method="POST" class="pull-left">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <button class="delete-button"><i class="glyphicon glyphicon-remove"></i></button>
+                                        <button class="delete-button delete-auction-schedule"><i class="glyphicon glyphicon-remove"></i></button>
                                     </form>
                                     <a href="{{ url('/item/create') }}" class="pull-left">
                                         <button type="button" class="btn btn-primary">Post new item</button>

@@ -41,7 +41,7 @@
                                     {{ !empty(App\User::find($data['items'][0]->users_id)->mobile_no) ? 'Cel: ' . App\User::find($data['items'][0]->users_id)->mobile_no : '' }}
                                 </dd>
                                 <dt>Auction Date</dt>
-                                <dd>{{ App\Auction::find($data['items'][0]->auction_schedule_id)->schedule }}</dd>
+                                <dd>{{ !empty(App\Auction::find($data['items'][0]->auction_schedule_id)->schedule) ? App\Auction::find($data['items'][0]->auction_schedule_id)->schedule : '' }}</dd>
                             </dl>
                         </div>
                     </div>

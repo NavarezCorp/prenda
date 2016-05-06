@@ -108,6 +108,11 @@ class AuctionController extends Controller
     public function destroy($id)
     {
         //
-        echo 'delete...';
+        $data = Auction::find($id);
+        $data->delete();
+        
+        $data = DB::table('auctions')->where('users_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(15);
+        
+        return view('pages.auction.index', ['data'=>$data]);
     }
 }
