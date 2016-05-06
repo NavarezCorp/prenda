@@ -179,7 +179,8 @@ Route::group(['middleware' => ['web']], function(){
     });
     
     Route::get('/schedules', function(){
-        $data = DB::table('auctions')->where('users_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(15);
+        if(Auth::guest()) $data = DB::table('auctions')->orderBy('id', 'desc')->paginate(15);
+        else $data = DB::table('auctions')->where('users_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(15);
         
         return view('pages.auction.schedules', ['data'=>$data]);
     });
