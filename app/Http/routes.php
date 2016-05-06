@@ -133,6 +133,22 @@ Route::group(['middleware' => ['web']], function(){
                 return view('welcome', ['data'=>$data]);
                 
                 break;
+                
+            case 'ap':
+                $data['items'] = DB::table('items')->where(['is_sold'=>0])->orderBy('ticket_no', 'desc')->paginate(6);
+                $provinces = DB::table('provinces')->orderBy('name', 'asc')->get();
+                $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
+
+                foreach($provinces as $value){
+                    $res = DB::table('cities')->where('description', 'like', '%' . strtolower($value->name) . '%')->get();
+
+                    if($res) foreach($res as $val) $data['provinces'][strtolower($value->name)][] = $val->name;
+                    else $data['provinces'][strtolower($value->name)][] = '';
+                }
+                
+                return view('welcome', ['data'=>$data]);
+                
+                break;
         }
     });
     
@@ -150,19 +166,16 @@ Route::group(['middleware' => ['web']], function(){
     
     Route::get('/', function(){
         $data['items'] = DB::table('items')->where(['is_sold'=>0])->orderBy('ticket_no', 'desc')->paginate(6);
-        //$data['provinces'] = DB::table('provinces')->lists('name', 'id');
         $provinces = DB::table('provinces')->orderBy('name', 'asc')->get();
         $data['pawnshops'] = DB::table('pawnshops')->lists('name', 'id');
         
         foreach($provinces as $value){
             $res = DB::table('cities')->where('description', 'like', '%' . strtolower($value->name) . '%')->get();
             
-            if($res){
-                foreach($res as $val) $data['provinces'][strtolower($value->name)][] = $val->name;
-            }
+            if($res) foreach($res as $val) $data['provinces'][strtolower($value->name)][] = $val->name;
             else $data['provinces'][strtolower($value->name)][] = '';
         }
-        //print_r($data['provinces']); die();
+        
         return view('welcome', ['data'=>$data]);
     });
 

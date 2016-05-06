@@ -15,6 +15,11 @@
                                 {{ !empty($data['filter']) ? $data['filter'] : 'All Provinces' }} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu multi-level text-capitalize" role="menu" aria-labelledby="dropdownMenu">
+                                @if(!empty($data['filter']))
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="/search/ap">All Provinces <span class="glyphicon glyphicon-triangle-right pull-right white-overlay"></span></a>
+                                    </li>
+                                @endif
                                 @foreach($data['provinces'] as $key => $value)
                                     <li class="dropdown-submenu">
                                         @if($value[0])
