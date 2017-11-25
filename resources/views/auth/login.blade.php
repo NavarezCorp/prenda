@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="login-prof-pic col-md-4">
-            <img class="img-responsive" src="/images/360x260_images2.jpg">
+            <img class="img-responsive" src="./images/360x260_images2.jpg">
         </div>
         <div class="col-md-8">
             <div class="panel panel-default">
