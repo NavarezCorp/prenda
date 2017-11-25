@@ -75,7 +75,7 @@ class ItemController extends Controller
         $data->save();
         
         $item_id = $data->id;
-        $destinationPath = 'images/' . Auth::user()->id . '/' . $request->ticket_no;
+        $destinationPath = '/prenda/images/' . Auth::user()->id . '/' . $request->ticket_no;
         File::makeDirectory($destinationPath, 0777, TRUE, TRUE);
         
         foreach($request->file('image') as $key => $photo){
