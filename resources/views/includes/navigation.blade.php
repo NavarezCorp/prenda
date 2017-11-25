@@ -14,7 +14,7 @@
             <div>
                 <a class="navbar-brand brand-image" href="{{ url('/') }}">
                     <span class="brand-name">Prenda.com</span>
-                    <img src="./images/ring0.png" class="img-responsive" alt="Responsive image">
+                    <img src="/images/ring0.png" class="img-responsive" alt="Responsive image">
                 </a>
             </div>
         </div>
@@ -46,7 +46,7 @@
                         </a>
 
                         <ul class="dropdown-menu text-capitalize" role="menu">
-                            <li><a href="{{ url('/item') }}">Item</a></li>
+                            <li><a href="{{ url('item') }}">Item</a></li>
                             <li><a href="{{ url('/city') }}">City</a></li>
                             <li><a href="{{ url('/province') }}">Province</a></li>
                             <li><a href="{{ url('/category') }}">Category</a></li>
@@ -78,6 +78,6 @@
 </nav>
 @if (!Request::is('login') && !Request::is('register') && !Request::is('registration/*'))
     <div class="container prof-pic">
-        <img class="img-responsive" src="./images/1140x350_images2.jpg">
+        <img class="img-responsive" src="/images/1140x350_images2.jpg">
     </div>
 @endif
