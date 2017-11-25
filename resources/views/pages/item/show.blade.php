@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="col-md-8 item-primary-image">
                             {{-- <img class="img-responsive" src="http://placehold.it/750x500"> --}}
-                            <img data-src="holder.js/200x200" class="img-responsive item-photos-thumbnail-big" alt="200x200" src="/images/{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}/image_0_725x483.jpg" data-holder-rendered="true">
+                            <img data-src="holder.js/200x200" class="img-responsive item-photos-thumbnail-big" alt="200x200" src="./images/{{ $data['items']->users_id }}/{{ $data['items']->ticket_no }}/image_0_725x483.jpg" data-holder-rendered="true">
                         </div>
                         <div class="col-md-4">
                             <dl class="dl-horizontal item-details">

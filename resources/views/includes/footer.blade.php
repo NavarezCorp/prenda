@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-4">
                 <a class="footer-brand-image" href="{{ url('/') }}">
-                    <img src="/images/ring0.png" class="img-responsive" alt="Responsive image">
+                    <img src="./images/ring0.png" class="img-responsive" alt="Responsive image">
                     <span class="footer-brand-name">Prenda.com</span>
                 </a>
                 <address>
