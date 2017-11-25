@@ -14,7 +14,7 @@
             <div>
                 <a class="navbar-brand brand-image" href="{{ url('/') }}">
                     <span class="brand-name">Prenda.com</span>
-                    <img src="./images/ring0.png" class="img-responsive" alt="Responsive image">
+                    <img src="/images/ring0.png" class="img-responsive" alt="Responsive image">
                 </a>
             </div>
         </div>
@@ -78,6 +78,6 @@
 </nav>
 @if (!Request::is('login') && !Request::is('register') && !Request::is('registration/*'))
     <div class="container prof-pic">
-        <img class="img-responsive" src="./images/1140x350_images2.jpg">
+        <img class="img-responsive" src="/images/1140x350_images2.jpg">
     </div>
 @endif
